@@ -7,7 +7,7 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
   
                 <div class="card-body">
-                    You are a Manager User.
+                    You are a ktu.
                 </div>
             </div>
         </div>
