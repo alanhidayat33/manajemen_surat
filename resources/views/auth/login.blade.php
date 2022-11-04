@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="vh-100">
+<section class="vh-50">
     <div class="container py-5 h-100">
         <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-8 col-lg-7 col-xl-6">
@@ -9,7 +9,7 @@
                     class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-            <h1 class="card-header mb-5">{{ __('Login') }}</h1>
+            <h1 class="card-header mb-4">{{ __('Login') }}</h1>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <!-- Email input -->
@@ -45,17 +45,16 @@
                                 {{ __('Remember Me') }}
                             </label>
                         </div>
-                        <a href="{{ route('password.request') }}">{{ __('Forgot Your Password?') }}</a>
-                    </div>
-
-                    <!-- Submit button -->
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="submit">{{ __('Sign In') }}</button>
                         @if (Route::has('password.request'))
                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
+                    </div>
+
+                    <!-- Submit button -->
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-lg btn-primary" type="submit">{{ __('Sign In') }}</button>
                     </div>
 
                 </form>
