@@ -19,9 +19,9 @@
 <body class="bg-white">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container justify-center">
                 <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-                    <img src="{{ URL::to('/assets/img/logo.png') }}" alt="" style="width:30px;">
+                    <img src="{{ URL::to('/assets/img/letter.png') }}" alt="" style="width:30px;">
                     {{ config('app.name', 'Surat.in') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
