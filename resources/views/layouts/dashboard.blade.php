@@ -16,11 +16,8 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="bg-white">
-    <div id="app">
-        <!-- Navbar -->
-            @include('../component.navbar')
-        <!-- Akhir Navbar -->
+<body class="bg-light">
+    <div id="dashboard">
         <!-- Main -->
         <!-- Akhir Main -->
         <main class="py-2">
