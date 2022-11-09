@@ -49,23 +49,22 @@ class LoginController extends Controller
         ]);
      
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-        {
             if (auth()->user()->type == 'admin') {
-                return redirect()->route('admin.home');
+                return redirect()->route('index');
             }
             else if (auth()->user()->type == 'dekan') {
-                return redirect()->route('dekan.home');
+                return redirect()->route('index');
             }
             else if (auth()->user()->type == 'ktu') {
-                return redirect()->route('ktu.home');
+                return redirect()->route('index');
             }
             else if (auth()->user()->type == 'kaur') {
-                return redirect()->route('kaur.home');
+                return redirect()->route('index');
             }
             else{
-                return redirect()->route('home');
+                return redirect()->route('index');
             }
-        }else{
+        else{
             return redirect()->route('login')
                 ->with('error','Email-Address And Password Are Wrong.');
         }

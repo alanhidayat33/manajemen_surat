@@ -21,12 +21,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware(['auth', 'user-access:maha'])->group(function (){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth', 'user-access:admin,maha,dekan,ktu']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 });
 
-Route::middleware(['auth', 'user-access:admin'])->group(function (){
-    Route::get('/admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home');
+/*
+Route::middleware(['auth', 'user-access:admin,maha,dekan,ktu'])->group(function (){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 });
 
 Route::middleware(['auth', 'user-access:dekan'])->group(function (){
@@ -40,3 +41,8 @@ Route::middleware(['auth', 'user-access:ktu'])->group(function (){
 Route::middleware(['auth', 'user-access:kaur'])->group(function (){
     Route::get('/kaur/home', [App\Http\Controllers\HomeController::class, 'kaurHome'])->name('kaur.home');
 });
+
+Route::middleware(['auth', 'user-access:maha'])->group(function (){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+*/

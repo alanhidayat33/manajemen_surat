@@ -47,7 +47,8 @@
             </a>
         </div>
         <div class="my-3">
-            <a href="../logout.php" class="nav-link text-decoration-none text-white fs-6">
+            <a href="{{route('logout')}}" class="nav-link text-decoration-none text-white fs-6" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf</form>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-door-open-fill" viewBox="0 0 16 16">
                     <path
