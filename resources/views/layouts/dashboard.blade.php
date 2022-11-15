@@ -16,13 +16,13 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="bg-light">
+<body style="background-color: rgb(240, 240, 240)">
     <div id="dashboard">
         <!-- Main -->
-        <!-- Akhir Main -->
         <main class="py-2">
             @yield('content')
         </main>
+        <!-- Akhir Main -->
     </div>
 </body>
 </html>

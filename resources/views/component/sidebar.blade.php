@@ -1,4 +1,4 @@
-<div class="col-lg-2 side-bar fixed-top shadow rounded-5 mx-lg-5 ms-lg-4 bg-primary mt-lg-4 mt-5" id="navbarNavAltMarkup">
+<div class="bg-primary bg-primary shadow  p-2" style="border-radius:15px">
     <div class="d-flex align-items-center mt-4 mx-2 mb-5 admin border-bottom pb-3" style="border-color: grey">
         <img src="{{ URL::to('/assets/img/user.png') }}" alt="user" width="50px" class="fluid-left">
         <h5 class="ms-2 text-white align-items-center my-auto ">{{ Auth::user()->name }} <br /> <span
