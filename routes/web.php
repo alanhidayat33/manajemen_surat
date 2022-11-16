@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuratController;
+use App\Http\Controllers\JenisSuratController;
+use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +27,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth', 'user-access:admin,maha,dekan,ktu']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+    Route::get('/view-sm', [App\Http\Controllers\SuratMasukController::class, 'viewSm']);
 });
 
 /*
