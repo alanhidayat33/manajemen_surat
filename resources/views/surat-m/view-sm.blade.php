@@ -9,11 +9,24 @@
         <div class="col-lg-9 mt-4">
             <div class="row">
                 <div class="col">
+                    <div class="row">
+                        <div class="page-header">
+                            <h3 class="page-title">Surat Masuk</h3>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    @if (auth()->user()->type == 'admin')
+                                    <a href="input-sm" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
+                                        <i class="bi bi-envelope-plus"></i> Tambah Surat</a>
+                                    @endif
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
                     <div class="row mt-2">
                     <table id="example1" class="table table-bordered bg-warning">
                             <thead>
                                 <tr>
-                                    <th class="col-md-1"> # </th>
+                                    <th>No</th>
                                     <th> Nomor Surat </th>
                                     <th class="col-md-1"> Tanggal Surat </th>
                                     <th> Pengirim </th>
