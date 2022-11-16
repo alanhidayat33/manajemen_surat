@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col">
                     <div class="row mt-2">
-                    <table id="example1" class="table table-bordered">
+                    <table id="example1" class="table table-bordered bg-warning">
                             <thead>
                                 <tr>
                                     <th class="col-md-1"> # </th>
@@ -39,26 +39,25 @@
                                         </td>
                                         <!-- <td> <img src="{{ $x->file }}" width="100px" height="auto" alt="file"></td> -->
                                         <td>
-<!-- 
                                             <a type="button" href="{{ $x->file }}" download
                                                 class="btn-sm btn-inverse-info btn-rounded m-lg-1" data-toggle="tooltip"
                                                 data-placement="top" title="Download File">
-                                                <i class="mdi mdi-format-vertical-align-bottom"></i>
+                                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                             </a>
 
-                                            @if (auth()->user()->level == 'admin')
+                                            @if (auth()->user()->type == 'admin')
                                                 <a type="button" href="/edit-sm/{{ $x->id }}"
                                                     class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
                                                     data-placement="top" title="Edit">
-                                                    <i class="bi bi-archive-fill"></i>
+                                                    <i class="bi bi-pencil-square"></i>
                                                 </a>
                                                 <a type="button" href="/hapus-sm/{{ $x->id }}"
                                                     onclick="return confirm('Apakah anda yakin menghapus data?')"
                                                     class="btn-sm btn-inverse-danger btn-rounded m-lg-1"
                                                     data-toggle="tooltip" data-placement="top" title="Delete">
-                                                    <i class="mdi mdi-delete"></i>
+                                                    <i class="bi bi-trash-fill"></i>
                                                 </a>
-                                            @endif -->
+                                            @endif
 
                                         </td>
                                     </tr>
