@@ -63,6 +63,9 @@
                         </div>
                         <!-- Akhir Jumbotron -->
                         <div class="col-lg-4">
+                            <div class="card">
+                                
+                            </div>
                         </div>
                     </div>
                     <!-- Akhir Main Column -->
