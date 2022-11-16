@@ -1,20 +1,15 @@
 @extends("layouts.dashboard")
 
 @section('content')
-
-    <div class="container-fluid">
-        <div class="row mt-4 mx-lg-3">
-            <div class="col-lg-3 pe-lg-5 px-1" id="navbarNavAltMarkup">
+<div class="container-fluid">
+    <div class="row mt-4 mx-lg-3">
+        <div class="col-lg-3 pe-lg-5 px-1" id="navbarNavAltMarkup">
                 @include('component.sidebar')
-            </div>
         </div>
-    </div>
-    <div class="col-lg-9 mt-4">
-        <div class="row">
-            <div class="col">
-                <!-- table -->
-                <div class="row mt-4">
-                    <div class="col-6 ps-0">
+        <div class="col-lg-9 mt-4">
+            <div class="row">
+                <div class="col">
+                    <div class="row mt-2">
                     <table id="example1" class="table table-bordered">
                             <thead>
                                 <tr>
@@ -44,7 +39,7 @@
                                         </td>
                                         <!-- <td> <img src="{{ $x->file }}" width="100px" height="auto" alt="file"></td> -->
                                         <td>
-
+<!-- 
                                             <a type="button" href="{{ $x->file }}" download
                                                 class="btn-sm btn-inverse-info btn-rounded m-lg-1" data-toggle="tooltip"
                                                 data-placement="top" title="Download File">
@@ -55,7 +50,7 @@
                                                 <a type="button" href="/edit-sm/{{ $x->id }}"
                                                     class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
                                                     data-placement="top" title="Edit">
-                                                    <i class="mdi mdi-border-color"></i>
+                                                    <i class="bi bi-archive-fill"></i>
                                                 </a>
                                                 <a type="button" href="/hapus-sm/{{ $x->id }}"
                                                     onclick="return confirm('Apakah anda yakin menghapus data?')"
@@ -63,16 +58,18 @@
                                                     data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="mdi mdi-delete"></i>
                                                 </a>
-                                            @endif
+                                            @endif -->
 
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
-                        </table>
+                        </table>    
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 @endsection
