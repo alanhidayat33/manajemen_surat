@@ -1,4 +1,4 @@
-<div class="bg-primary bg-primary shadow  p-2" style="border-radius:15px">
+<div class="bg-primary bg-primary shadow  p-2" style="border-radius:15px; height:560px">
     <div class="d-flex align-items-center mt-4 mx-2 mb-5 admin border-bottom pb-3" style="border-color: grey">
         <img src="{{ URL::to('/assets/img/user.png') }}" alt="user" width="50px" class="fluid-left">
         <h5 class="ms-2 text-white align-items-center my-auto ">{{ Auth::user()->name }} <br /> <span
