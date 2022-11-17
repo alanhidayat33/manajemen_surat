@@ -39,7 +39,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
  
-    public function login(Request $request)
+    public function login(Request $request, ...$userType)
     {   
         $input = $request->all();
      
@@ -49,19 +49,7 @@ class LoginController extends Controller
         ]);
      
         if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
-            if (auth()->user()->type == 'admin') {
-                return redirect()->route('index');
-            }
-            else if (auth()->user()->type == 'dekan') {
-                return redirect()->route('index');
-            }
-            else if (auth()->user()->type == 'ktu') {
-                return redirect()->route('index');
-            }
-            else if (auth()->user()->type == 'kaur') {
-                return redirect()->route('index');
-            }
-            else{
+            if (in_array($request->User()->type, $userType)) {
                 return redirect()->route('index');
             }
         else{

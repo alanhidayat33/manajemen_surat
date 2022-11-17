@@ -2,7 +2,7 @@
     <div class="d-flex align-items-center mt-4 mx-2 mb-5 admin border-bottom pb-3" style="border-color: grey">
         <img src="{{ URL::to('/assets/img/user.png') }}" alt="user" width="50px" class="fluid-left">
         <h5 class="ms-2 text-white align-items-center my-auto ">{{ Auth::user()->name }} <br /> <span
-                class="fw-lighter fs-6">Admin</span></h5>
+                class="fw-lighter fs-6">As {{auth::user()->type }}</span></h5>
     </div>
     <div class="menu justify-content-center ms-4">
         <div class="my-3">
@@ -35,6 +35,7 @@
                 </svg> <span class="ms-1"> Tugas</span>
             </a>
         </div>
+        @if(auth()->user()->type == 'Admin')
         <div class="my-3">
             <a href="mahasiswa_mhs.php" class="nav-link text-decoration-none text-white fs-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -43,9 +44,10 @@
                     <path fill-rule="evenodd"
                         d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z" />
                     <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
-                </svg> <span class="ms-1">Mahasiswa</span>
+                </svg> <span class="ms-1">Data User</span>
             </a>
         </div>
+        @endif
         <div class="my-3">
             <a href="{{route('logout')}}" class="nav-link text-decoration-none text-white fs-6" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf</form>
