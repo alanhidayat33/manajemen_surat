@@ -24,30 +24,16 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::group(['middleware' => ['auth', 'user-access:admin,maha,dekan,ktu']], function () {
+       
+//akses semua
+Route::group(['middleware' => ['auth', 'user-access:Admin,Maha,Kaur,Ktu,Dekan']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
     Route::get('/view-sm', [App\Http\Controllers\SuratMasukController::class, 'viewSm']);
 });
 
-/*
-Route::middleware(['auth', 'user-access:admin,maha,dekan,ktu'])->group(function (){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+//akses level admin only
+Route::group(['middleware' => ['auth', 'user-access:admin']], function () {
+    //kelola data user
+    Route::get('/view-user', [LoginController::class, 'viewUser']);
 });
-
-Route::middleware(['auth', 'user-access:dekan'])->group(function (){
-    Route::get('/dekan/home', [App\Http\Controllers\HomeController::class, 'dekanHome'])->name('dekan.home');
-});
-
-Route::middleware(['auth', 'user-access:ktu'])->group(function (){
-    Route::get('/ktu/home', [App\Http\Controllers\HomeController::class, 'ktuHome'])->name('ktu.home');
-});
-
-Route::middleware(['auth', 'user-access:kaur'])->group(function (){
-    Route::get('/kaur/home', [App\Http\Controllers\HomeController::class, 'kaurHome'])->name('kaur.home');
-});
-
-Route::middleware(['auth', 'user-access:maha'])->group(function (){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-});
-*/

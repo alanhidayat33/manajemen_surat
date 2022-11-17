@@ -24,28 +24,28 @@ class CreateUsersSeeder extends Seeder
             ],
             [
                //
-                'name'=>'dekan',
-               'email'=>'dekan@it.lecturer.pens.ac.id',
+                'name'=>'Fahrul',
+               'email'=>'fahrul@it.lecturer.pens.ac.id',
                'type'=> 2,
                'password'=> bcrypt('dekan'),
             ],
             [
                 //
-                'name'=>'ktu',
-                'email'=>'ktu@it.lecturer.pens.ac.id',
+                'name'=>'Rengga',
+                'email'=>'rengga@it.lecturer.pens.ac.id',
                 'type'=> 3,
                 'password'=> bcrypt('ktu'),
             ],
             [
                 //
-                 'name'=>'kaur',
-                'email'=>'kaur@it.lecturer.pens.ac.id',
+                 'name'=>'Yanuar',
+                'email'=>'yanuar@it.lecturer.pens.ac.id',
                 'type'=> 4,
-                'password'=> bcrypt('123456'),
+                'password'=> bcrypt('kaur'),
             ],
             [
-               'name'=>'maha',
-               'email'=>'maha@it.student.pens.ac.id',
+               'name'=>'Alan',
+               'email'=>'alanhidayat@it.student.pens.ac.id',
                'type'=>0,
                'password'=> bcrypt('maha'),
             ],
