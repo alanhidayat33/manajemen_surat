@@ -6,7 +6,7 @@
     </div>
     <div class="menu justify-content-center ms-4">
         <div class="my-3">
-            <a href="index_mhs.php" class="nav-link text-decoration-none text-white fs-6">
+            <a href="/home" class="nav-link text-decoration-none text-white fs-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                     class="bi bi-house-fill" viewBox="1 2 16 16">
                     <path fill-rule="evenodd"
