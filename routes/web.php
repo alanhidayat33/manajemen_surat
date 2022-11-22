@@ -27,7 +27,7 @@ Auth::routes();
        
 //akses semua
 Route::group(['middleware' => ['auth', 'user-access:Admin,Maha,Kaur,Ktu,Dekan']], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
     Route::get('/view-sm', [App\Http\Controllers\SuratMasukController::class, 'viewSm']);
 });

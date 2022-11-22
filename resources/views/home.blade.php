@@ -37,7 +37,7 @@
                                 </svg>
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    99+
+                                    {{ $data[3]}}
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </button>
@@ -84,7 +84,7 @@
                                                 Surat Masuk
                                             </h5>
                                             <p class="text-muted text-center">
-                                                Total : 1</a>
+                                                Total : {{ $data[2]}} </a>
                                             </p>
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col text-dark">
-                                                    <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
+                                                    <h6 class="lh-0 mb-0 fw-bold"></h6>
                                                     <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
                                                 </div>
                                             </div>

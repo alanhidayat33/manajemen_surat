@@ -58,7 +58,7 @@
                                                 <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                             </a>
 
-                                            @if (auth()->user()->type == 'admin')
+                                            @if (auth()->user()->type == 'Admin')
                                                 <a type="button" href="/edit-sm/{{ $x->id }}"
                                                     class="btn-sm btn-inverse-dark btn-rounded m-lg-1" data-toggle="tooltip"
                                                     data-placement="top" title="Edit">

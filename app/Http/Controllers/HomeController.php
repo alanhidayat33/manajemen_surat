@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\JenisSurat;
+use App\Models\SuratMasuk;
+use App\Models\SuratKeluar;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //count surat
+        $data2 = User::count();
+        $keluar = SuratKeluar::count();
+        $suratMasuk = SuratMasuk::count();
+        $total = $keluar + $suratMasuk;
+        //Take Surat
+        $dataSm = SuratMasuk::all();
+
+        $data = [$data2, $keluar, $suratMasuk, $total, $dataSm];
+        return view("home",['data'=>$data] );
     }
 }
