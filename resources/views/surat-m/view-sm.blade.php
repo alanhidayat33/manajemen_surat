@@ -26,7 +26,7 @@
                                     <th> Nomor Surat </th>
                                     <th class="col-md-1"> Tanggal Surat </th>
                                     <th> Pengirim </th>
-                                    <th> Perihal</th>
+                                    <th> Jenis Surat</th>
                                     <th class="col-md-1"> File </th>
                                     <th class="col-md-1"> Action</th>
                                 </tr>

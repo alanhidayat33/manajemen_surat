@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('noSmasuk');
             $table->date('tglMasuk');
             $table->string('pengirim');
-            $table->string('perihal');
             $table->text('file')->nullable();
             $table->unsignedBigInteger('jenisSurat_id');
             $table->foreign('jenisSurat_id')->references('id')->on('jenis_surat');

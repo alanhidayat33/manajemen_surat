@@ -40,13 +40,6 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="perihal">Perihal</label>
-                                    <input type="text" name="perihal" class="" placeholder="Masukan perihal" value="{{ old('perihal') }}">
-                                    @error('perihal')
-                                        <p class="text-danger pt-1">{{ $message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
                                     <label for="exampleFormControlSelect2">jenis Surat</label>
                                     <select class="form-control" id="exampleFormControlSelect2" name="jenisSurat_id"
                                         value="{{ old('jenisSurat_id') }}">

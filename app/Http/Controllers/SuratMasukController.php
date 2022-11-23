@@ -33,7 +33,6 @@ class SuratMasukController extends Controller
             'noSmasuk.required' => 'Nomor surat tidak boleh kosong!',
             'tglMasuk.required' => 'Tanggal surat tidak boleh kosong!',
             'pengirim.required' => 'Pengirim tidak boleh kosong!',
-            'perihal.required' => 'Perihal tidak boleh kosong!',
             'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
             // 'file.required' => 'File surat tidak boleh kosong!',
             'file.mimes' => 'File harus berupa file dengan tipe: pdf dengan ukuran max: 2048',
@@ -42,7 +41,6 @@ class SuratMasukController extends Controller
             'noSmasuk' => 'required',
             'tglMasuk' => 'required',
             'pengirim' => 'required',
-            'perihal' => 'required',
             'jenisSurat_id' => 'required',
             'file' => 'mimes:pdf|max:2048'
         ], $messages);
@@ -53,7 +51,6 @@ class SuratMasukController extends Controller
                 'noSmasuk' => $x->noSmasuk,
                 'tglMasuk' => $x->tglMasuk,
                 'pengirim' => $x->pengirim,
-                'perihal' => $x->perihal,
                 'jenisSurat_id' => $x->jenisSurat_id,
             ], $cekValidasi);
         } else {
@@ -69,7 +66,6 @@ class SuratMasukController extends Controller
                 'noSmasuk' => $x->noSmasuk,
                 'tglMasuk' => $x->tglMasuk,
                 'pengirim' => $x->pengirim,
-                'perihal' => $x->perihal,
                 'jenisSurat_id' => $x->jenisSurat_id,
                 'file' => $pathPublic,
             ], $cekValidasi);
