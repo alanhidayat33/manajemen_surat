@@ -16,7 +16,6 @@
                             <h1 class="fw-bolder lh-1 mb-0">{{ Auth::user()->name }}</h1>
                         </div>
                         <div class="col-2 position-relative">
-                            <a href="/view-sm">
                             <div class="position-absolute bottom-0 end-0 btn btn-primary shadow-sm py-1 my-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-cloud-plus-fill" viewBox="0 0 16 16">
@@ -24,7 +23,6 @@
                                         d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z" />
                                 </svg>
                                 Buat Surat</div>
-                            </a>
                         </div>
                         <div class="col-4 position-relative">
                             <button type="button"
@@ -37,7 +35,7 @@
                                 </svg>
                                 <span
                                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {{ $data[3]}}
+                                    99+
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </button>
@@ -84,7 +82,7 @@
                                                 Surat Masuk
                                             </h5>
                                             <p class="text-muted text-center">
-                                                Total : {{ $data[2]}} </a>
+                                                Total : 1</a>
                                             </p>
                                         </div>
                                     </div>
@@ -147,23 +145,75 @@
                                                     <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
                                                 </div>
                                             </div>
-                                            <div class="overflow-auto">
-                                                @for ($i = 1; $i < 6; $i++)
-                                                <div class="row mb-2">
-                                                    <div class="col-3">
-                                                        <div class="border-0 position-relative"
-                                                            style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
-                                                            <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
-                                                                style="width:35px"
-                                                                class="position-absolute top-50 start-50 translate-middle">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col text-dark">
-                                                        <h6 class="lh-0 mb-0 fw-bold"></h6>
-                                                        <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
+                                            <div class="row mb-2">
+                                                <div class="col-3">
+                                                    <div class="border-0 position-relative"
+                                                        style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
+                                                        <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
+                                                            style="width:35px"
+                                                            class="position-absolute top-50 start-50 translate-middle">
                                                     </div>
                                                 </div>
-                                                @endfor
+                                                <div class="col text-dark">
+                                                    <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
+                                                    <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-3">
+                                                    <div class="border-0 position-relative"
+                                                        style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
+                                                        <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
+                                                            style="width:35px"
+                                                            class="position-absolute top-50 start-50 translate-middle">
+                                                    </div>
+                                                </div>
+                                                <div class="col text-dark">
+                                                    <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
+                                                    <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-3">
+                                                    <div class="border-0 position-relative"
+                                                        style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
+                                                        <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
+                                                            style="width:35px"
+                                                            class="position-absolute top-50 start-50 translate-middle">
+                                                    </div>
+                                                </div>
+                                                <div class="col text-dark">
+                                                    <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
+                                                    <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-3">
+                                                    <div class="border-0 position-relative"
+                                                        style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
+                                                        <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
+                                                            style="width:35px"
+                                                            class="position-absolute top-50 start-50 translate-middle">
+                                                    </div>
+                                                </div>
+                                                <div class="col text-dark">
+                                                    <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
+                                                    <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-3">
+                                                    <div class="border-0 position-relative"
+                                                        style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
+                                                        <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
+                                                            style="width:35px"
+                                                            class="position-absolute top-50 start-50 translate-middle">
+                                                    </div>
+                                                </div>
+                                                <div class="col text-dark">
+                                                    <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
+                                                    <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
