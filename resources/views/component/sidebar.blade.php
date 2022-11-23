@@ -29,7 +29,7 @@
             </a>
         </div>
         <div class="my-3">
-            <a href="profile_mhs.php" class="nav-link text-decoration-none text-white fs-6">
+            <a href="/view-sm" class="nav-link text-decoration-none text-white fs-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"
                     class="bi bi-person-circle" viewBox="0 2 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('kodeSurat');
             $table->string('keterangan');
-            $table->integer('jumlahSurat');
         });
     }
 

@@ -12,14 +12,10 @@
                     <div class="row">
                         <div class="page-header">
                             <h3 class="page-title">Surat Masuk</h3>
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    @if (auth()->user()->type == 'admin')
-                                    <a href="input-sm" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
-                                        <i class="bi bi-envelope-plus"></i> Tambah Surat</a>
-                                    @endif
-                                </ol>
-                            </nav>
+                                @if (auth()->user()->type == 'Admin')
+                                        <a href="input-sm" type="button" class="btn btn-gradient-primary btn-icon-text btn-sm">
+                                            <i class="bi bi-envelope-plus"></i> Tambah Surat</a>
+                                @endif
                         </div>
                     </div>
                     <div class="row mt-2">

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('tglMasuk');
             $table->string('pengirim');
             $table->string('perihal');
-            $table->text('file');
+            $table->text('file')->nullable();
             $table->unsignedBigInteger('jenisSurat_id');
             $table->foreign('jenisSurat_id')->references('id')->on('jenis_surat');
         });
