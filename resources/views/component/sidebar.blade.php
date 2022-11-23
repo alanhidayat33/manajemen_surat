@@ -39,7 +39,7 @@
             </a>
         </div>
         <div class="my-3">
-            <a href="tugas_mhs.php" class="nav-link text-decoration-none text-white fs-6">
+            <a href="/view-sk" class="nav-link text-decoration-none text-white fs-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="18" fill="currentColor"
                     class="bi bi-file-earmark-check-fill" viewBox="1 2 16 16">
                     <path
