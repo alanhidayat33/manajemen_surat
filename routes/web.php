@@ -33,6 +33,9 @@ Route::group(['middleware' => ['auth', 'user-access:Admin,Maha,Kaur,Ktu,Dekan']]
 
     //view Surat Masuk
     Route::get('/view-sk', [App\Http\Controllers\SuratKeluarController::class, 'viewSk']);
+
+    //view Surat Masuk
+    Route::get('/view-jenis', [App\Http\Controllers\JenisSuratController::class, 'viewJenis']);
 });
 
 //akses level admin only
@@ -53,4 +56,11 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
     Route::get('/edit-sk/{id}', [SuratMasukController::class, 'editSk']);
     Route::post('/update-sk/{id}', [SuratMasukController::class, 'updateSk']);
     Route::get('/hapus-sk/{id}', [SuratMasukController::class, 'hapusSk']);
+
+    //Kelola Jenis surat
+    Route::get('/input-jenis', [JenisSuratController::class, 'inputJenis']);
+    Route::post('/save-jenis', [JenisSuratController::class, 'saveJenis']);
+    Route::get('/edit-jenis/{id}', [JenisSuratController::class, 'editJenis']);
+    Route::post('/update-jenis/{id}', [JenisSuratController::class, 'updateJenis']);
+    Route::get('/hapus-jenis/{id}', [JenisSuratController::class, 'hapusJenis']);
 });
