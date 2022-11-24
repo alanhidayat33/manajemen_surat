@@ -8,17 +8,17 @@
         </div>
         <div class="col-lg-9 bg-white pt-4 shadow-sm" style="border-radius:15px">
             <div class="page-header mb-4">
-                <h3 class="page-title">Edit Surat Masuk</h3>
+                <h3 class="page-title">Tambah Surat Keluar</h3>
             </div>
-            <form action="/update-sm/{{ $data->id}}" method="POST" class="forms-sample row" enctype="multipart/form-data">
+            <form action="/update-sk/{{ $data->id}}" method="POST" class="forms-sample row" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <input type="hidden" name="id" placeholder="id surat" value="{{ $data->idSmasuk }}">
+                    <input type="hidden" name="id" placeholder="id surat" value="{{ $data->idSkeluar }}">
                 </div>
                 <div class="col-md-4">
                     <label for="inputZip" class="form-label">Nomer Surat</label>
-                    <input type="text" name="noSmasuk" class="form-control" value="{{ $data->noSmasuk }}">
+                    <input type="text" name="noSkeluar" class="form-control" value="{{ $data->noSkeluar }}">
                     @error('noSkeluar')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
@@ -37,25 +37,22 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputCity" class="form-label">Date</label><br>
-                    <input type="date" name="tglMasuk" class="form-control" placeholder="Tanggal Surat" value="{{ $data->tglMasuk }}">
+                    <input type="date" name="tglKeluar" class="form-control" placeholder="Tanggal Surat" value="{{ $data->tglKeluar }}">
                     @error('tglKeluar')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
                 <div class="my-3">
-                    <label for="exampleInputEmail1" class="form-label">Pengirim</label>
-                    <input type="text" name="pengirim" class="form-control" value="{{ $data->pengirim }}">
+                    <label for="exampleInputEmail1" class="form-label">Tujuan</label>
+                    <input type="text" name="tujuan" class="form-control" value="{{ $data->tujuan }}">
                     @error('tujuan')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <label for="upload">Upload File</label>
-                    <input type="hidden" name="pathFile" value="{{ $data->file }}">
-                    <div>
-                    <input class="form-control" type="text" name="file" placeholder="{{ $data->filename }}" value="{{ $data->filename }}">
-                    <input class="" type="file" name="file" placeholder="{{ $data->file }}" value="{{ $data->file }}">
-                    </div>
+                    <label for="tanggal">Upload File</label>
+                    <!-- <input type="file" name="file" value="{{ old('file') }}"> -->
+                    <input class="form-control" type="file" name="file" value="{{ old('file') }}">
                     @error('file')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror

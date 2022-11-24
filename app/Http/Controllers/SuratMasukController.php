@@ -34,7 +34,7 @@ class SuratMasukController extends Controller
             'tglMasuk.required' => 'Tanggal surat tidak boleh kosong!',
             'pengirim.required' => 'Pengirim tidak boleh kosong!',
             'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
-            // 'file.required' => 'File surat tidak boleh kosong!',
+            'file.required' => 'File surat tidak boleh kosong!',
             'file.mimes' => 'File harus berupa file dengan tipe: pdf dengan ukuran max: 2048',
         ];
         $cekValidasi = $x->validate([
@@ -42,11 +42,12 @@ class SuratMasukController extends Controller
             'tglMasuk' => 'required',
             'pengirim' => 'required',
             'jenisSurat_id' => 'required',
-            'file' => 'mimes:pdf|max:2048'
+            'file' => 'mimes:pdf|max:2048',
         ], $messages);
 
         $file = $x->file('file');
         if (empty($file)) {
+
             SuratMasuk::create([
                 'noSmasuk' => $x->noSmasuk,
                 'tglMasuk' => $x->tglMasuk,
@@ -55,6 +56,7 @@ class SuratMasukController extends Controller
             ], $cekValidasi);
         } else {
             $nama_file = time() . "-" . $file->getClientOriginalName();
+            $fileN = $file->getClientOriginalName();
             $ekstensi = $file->getClientOriginalExtension();
             $ukuran = $file->getSize();
             $patAsli = $file->getRealPath();
@@ -67,6 +69,7 @@ class SuratMasukController extends Controller
                 'tglMasuk' => $x->tglMasuk,
                 'pengirim' => $x->pengirim,
                 'jenisSurat_id' => $x->jenisSurat_id,
+                'filename' => $fileN,
                 'file' => $pathPublic,
             ], $cekValidasi);
         }
@@ -88,7 +91,7 @@ class SuratMasukController extends Controller
             'tglMasuk.required' => 'Tanggal surat tidak boleh kosong!',
             'pengirim.required' => 'Pengirim tidak boleh kosong!',
             'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
-            //'file.required' => 'File surat tidak boleh kosong!',
+            // 'file.required' => 'File surat tidak boleh kosong!',
             'file.mimes' => 'File harus berupa file dengan tipe: pdf dengan ukuran max: 2048',
         ];
         $cekValidasi = $x->validate([
@@ -96,18 +99,22 @@ class SuratMasukController extends Controller
             'tglMasuk' => 'required',
             'pengirim' => 'required',
             'jenisSurat_id' => 'required',
-            'file' => 'mimes:pdf|max:2048'
+            // 'file' => 'nullable|mimes:pdf|max:2048'
         ], $messages);
 
         $file = $x->file('file');
         if (file_exists($file)) {
             $nama_file = time() . "-" . $file->getClientOriginalName();
+            $fileN = $file->getClientOriginalName();
             $folder = 'file';
             $file->move($folder, $nama_file);
             $path = $folder . "/" . $nama_file;
             //delete
             $data = SuratMasuk::where('id', $idSmasuk)->first();
             File::delete($data->file);
+            SuratMasuk::where("id", "$idSmasuk")->update([
+                'filename' => $fileN,
+            ], $cekValidasi);
         } else {
             $path = $x->pathFile;
         }

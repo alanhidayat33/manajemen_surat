@@ -32,7 +32,7 @@
                     <tbody class="overflow-scroll">
                         @foreach ($data as $x)
                         <tr>
-                            <td>{{ $x->id }}</td>
+                            <td>{{ $loop->iteration  }}</td>
                             <td>{{ $x->noSmasuk }}</td>
                             <td>{{ $x->tglMasuk }}</td>
                             <td>{{ $x->pengirim }}</td>

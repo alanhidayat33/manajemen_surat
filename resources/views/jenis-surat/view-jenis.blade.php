@@ -31,7 +31,7 @@
                             <tbody>
                                 @foreach ($data as $x)
                                     <tr>
-                                        <td>{{ $x->id }}</td>
+                                        <td>{{ $loop->iteration }}</td>
                                         <td>{{ $x->kodeSurat }}</td>
                                         <td>{{ $x->keterangan }}</td>
                                         <!-- <td> <img src="{{ $x->file }}" width="100px" height="auto" alt="file"></td> -->

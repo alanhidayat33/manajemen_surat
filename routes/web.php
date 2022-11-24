@@ -51,11 +51,11 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
     Route::get('/hapus-sm/{id}', [SuratMasukController::class, 'hapusSm']);
 
     //kelola surat keluar
-    Route::get('/input-sk', [SuratMasukController::class, 'inputSk']);
-    Route::post('/save-sk', [SuratMasukController::class, 'saveSk']);
-    Route::get('/edit-sk/{id}', [SuratMasukController::class, 'editSk']);
-    Route::post('/update-sk/{id}', [SuratMasukController::class, 'updateSk']);
-    Route::get('/hapus-sk/{id}', [SuratMasukController::class, 'hapusSk']);
+    Route::get('/input-sk', [SuratKeluarController::class, 'inputSk']);
+    Route::post('/save-sk', [SuratKeluarController::class, 'saveSk']);
+    Route::get('/edit-sk/{id}', [SuratKeluarController::class, 'editSk']);
+    Route::post('/update-sk/{id}', [SuratKeluarController::class, 'updateSk']);
+    Route::get('/hapus-sk/{id}', [SuratKeluarController::class, 'hapusSk']);
 
     //Kelola Jenis surat
     Route::get('/input-jenis', [JenisSuratController::class, 'inputJenis']);
