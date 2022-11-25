@@ -55,7 +55,6 @@
                     <label for="upload">Upload File</label>
                     @empty($data->file)
                         <div class="col-12">
-                            <!-- <input class="" type="file" name="file" placeholder="{{ $data->file }}" value="{{ $data->file }}" > -->
                             <input class="form-control" type="file" name="file" placeholder="{{ $data->file }}"
                                 value="{{ $data->file }}">
                         </div>
@@ -65,7 +64,7 @@
                                 value="{{ $data->filename }}">
                         </div>
                         <div class="col-md-2">
-                            <a type="button" href="/hapus-fl/{{ $data->id }}"
+                            <a type="button" href="/hapus-fm/{{ $data->id }}"
                             onclick="return confirm('Apakah anda yakin menghapus data?')"
                             class="btn btn-sm btn-danger col-4" data-toggle="tooltip" data-placement="top"
                                 title="Delete">

@@ -84,14 +84,6 @@ class SuratMasukController extends Controller
         return view("surat-m.edit-sm", ['data' => $dataSm], ['jenis' => $dataJenis]);
     }
  
-    public function hapusFl($idSmasuk)
-    {
-        $data = SuratMasuk::where('id', $idSmasuk)->first();
-        File::delete($data->file);
-        SuratMasuk::where('file', 'filename')->delete();
-        return redirect('/view-sm')->with('toast_success', 'File berhasil di hapus!');
-    }
-
     public function updateSm($idSmasuk, Request $x)
     {
         //Validasi
@@ -150,5 +142,17 @@ class SuratMasukController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/view-sm')->with('toast_error', 'Data tidak bisa di hapus!');
         }
+    }
+
+        //hapus File
+    public function hapusFm($idSmasuk)
+    {
+        $data = SuratMasuk::where('id', $idSmasuk)->first();
+        File::delete($data->file);
+        SuratMasuk::where("id", "$idSmasuk")->update([
+            'filename' => null,
+            'file' => null
+        ]);
+        return redirect()->back()->with('toast_success', 'File berhasil di hapus!');
     }
 }
