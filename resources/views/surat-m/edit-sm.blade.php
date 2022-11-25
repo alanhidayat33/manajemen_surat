@@ -10,7 +10,8 @@
             <div class="page-header mb-4">
                 <h3 class="page-title">Edit Surat Masuk</h3>
             </div>
-            <form action="/update-sm/{{ $data->id}}" method="POST" class="forms-sample row" enctype="multipart/form-data">
+            <form action="/update-sm/{{ $data->id}}" method="POST" class="forms-sample row"
+                enctype="multipart/form-data">
 
                 {{ csrf_field() }}
                 <div class="form-group">
@@ -37,7 +38,8 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputCity" class="form-label">Date</label><br>
-                    <input type="date" name="tglMasuk" class="form-control" placeholder="Tanggal Surat" value="{{ $data->tglMasuk }}">
+                    <input type="date" name="tglMasuk" class="form-control" placeholder="Tanggal Surat"
+                        value="{{ $data->tglMasuk }}">
                     @error('tglKeluar')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
@@ -49,14 +51,28 @@
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 row">
                     <label for="upload">Upload File</label>
-                    <!-- <input type="hidden" name="pathFile" value="{{ $data->file }}"> -->
-                    <div>
-                        <!-- <input class="form-control" type="text" name="file" placeholder="{{ $data->filename }}" value="{{ $data->filename }}">
-                        <input class="" type="file" name="file" placeholder="{{ $data->file }}" value="{{ $data->file }}" > -->
-                        <input class="form-control" type="file" id="formFile" placeholder="{{ $data->file }}"  value="{{ $data->file }}">
+                    @empty($x->file)
+                    <div class="col-md-10">
+                        <input class="form-control col-8" type="text" name="file" placeholder="{{ $data->filename }}"
+                            value="{{ $data->filename }}">
                     </div>
+                    <div class="col-md-2">
+                        <a type="button" href="#"
+                        onclick="return confirm('Apakah anda yakin menghapus data?')"
+                        class="btn btn-sm btn-danger col-4" data-toggle="tooltip" data-placement="top"
+                            title="Delete">
+                            <i class="bi bi-trash-fill"></i>
+                        </a>
+                    </div>
+                    @else
+                    <div class="col-12">
+                        <!-- <input class="" type="file" name="file" placeholder="{{ $data->file }}" value="{{ $data->file }}" > -->
+                        <input class="form-control" type="file" name="file" placeholder="{{ $data->filename }}"
+                            value="{{ $data->filename }}">
+                    </div>
+                    @endempty
                     @error('file')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
