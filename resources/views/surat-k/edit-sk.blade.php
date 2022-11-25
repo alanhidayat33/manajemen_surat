@@ -8,7 +8,7 @@
         </div>
         <div class="col-lg-9 bg-white pt-4 shadow-sm" style="border-radius:15px">
             <div class="page-header mb-4">
-                <h3 class="page-title">Tambah Surat Keluar</h3>
+                <h3 class="page-title">Edit Surat Keluar</h3>
             </div>
             <form action="/update-sk/{{ $data->id}}" method="POST" class="forms-sample row" enctype="multipart/form-data">
 

@@ -83,6 +83,15 @@ class SuratMasukController extends Controller
         $dataSm = SuratMasuk::find($idSmasuk);
         return view("surat-m.edit-sm", ['data' => $dataSm], ['jenis' => $dataJenis]);
     }
+ 
+    public function hapusFl($idSmasuk)
+    {
+        $data = SuratMasuk::where('id', $idSmasuk)->first();
+        File::delete($data->file);
+        SuratMasuk::where('file', 'filename')->delete();
+        return redirect('/view-sm')->with('toast_success', 'File berhasil di hapus!');
+    }
+
     public function updateSm($idSmasuk, Request $x)
     {
         //Validasi

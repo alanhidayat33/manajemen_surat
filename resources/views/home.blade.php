@@ -101,7 +101,7 @@
                                                 Surat Keluar
                                             </h5>
                                             <p class="text-muted text-center">
-                                                Total : 1</a>
+                                                Total : {{$data[1]}}</a>
                                             </p>
                                         </div>
                                     </div>

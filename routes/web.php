@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
     Route::get('/input-sm', [SuratMasukController::class, 'inputSm']);
     Route::post('/save-sm', [SuratMasukController::class, 'saveSm']);
     Route::get('/edit-sm/{id}', [SuratMasukController::class, 'editSm']);
+    Route::get('/hapus-fl/{id}', [SuratMasukController::class, 'hapusFl']);
     Route::post('/update-sm/{id}', [SuratMasukController::class, 'updateSm']);
     Route::get('/hapus-sm/{id}', [SuratMasukController::class, 'hapusSm']);
 

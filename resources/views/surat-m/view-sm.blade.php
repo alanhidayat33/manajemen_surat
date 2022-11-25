@@ -50,7 +50,6 @@
                                 @endempty
                             </td>
                             <td>
-
                                 @if (auth()->user()->type == 'Admin')
                                 <a type="button" href="/edit-sm/{{ $x->id }}" class="btn btn-sm btn-primary"
                                     data-toggle="tooltip" data-placement="top" title="Edit">
