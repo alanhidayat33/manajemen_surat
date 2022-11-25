@@ -42,7 +42,7 @@
                                 <span class="btn btn-sm btn-warning"><i class="bi bi-file-earmark-excel-fill"></i> Tidak
                                     ada </span>
                                 @else
-                                <a type="button" href="/edit-sm/{{ $x->id }}" class="btn btn-sm btn-success"
+                                <a type="button" href="{{ $x->file }}" class="btn btn-sm btn-success"
                                     data-toggle="tooltip" data-placement="top" title="Edit">
                                     <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                     Download
