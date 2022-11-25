@@ -51,17 +51,18 @@
                 </div>
                 <div class="mb-3">
                     <label for="upload">Upload File</label>
-                    <input type="hidden" name="pathFile" value="{{ $data->file }}">
+                    <!-- <input type="hidden" name="pathFile" value="{{ $data->file }}"> -->
                     <div>
-                    <input class="form-control" type="text" name="file" placeholder="{{ $data->filename }}" value="{{ $data->filename }}">
-                    <input class="" type="file" name="file" placeholder="{{ $data->file }}" value="{{ $data->file }}">
+                        <!-- <input class="form-control" type="text" name="file" placeholder="{{ $data->filename }}" value="{{ $data->filename }}">
+                        <input class="" type="file" name="file" placeholder="{{ $data->file }}" value="{{ $data->file }}" > -->
+                        <input class="form-control" type="file" id="formFile" placeholder="{{ $data->file }}"  value="{{ $data->file }}">
                     </div>
                     @error('file')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
                 <div class="mt-4">
-                    <button type="submit" class="btn btn-primary">Tambah Surat</button>
+                    <button type="submit" class="btn btn-primary">Perbarui</button>
                 </div>
             </form>
         </div>

@@ -4,43 +4,34 @@
 <div class="container-fluid">
     <div class="row mt-4 mx-lg-3">
         <div class="col-lg-3 pe-lg-5 px-1" id="navbarNavAltMarkup">
-                @include('component.sidebar')
+            @include('component.sidebar')
         </div>
-        <div class="col-lg-9 mt-4">
-            <div class="row">
-                <div class="col">
-                    <div class="row">
-                        <div class="page-header">
-                            <h3 class="page-title">Edit Surat Masuk</h3>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="card-body">
-                            <form action="/update-jenis/{{ $data->id }}" method="POST" class="forms-sample" enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <div class="form-group">
-                                    <input type="hidden" name="id" placeholder="id jenis" value="{{ $data->id }}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="edit jenis">Kode Surat</label>
-                                    <input type="text" name="kodeSurat" class="" placeholder="Jenis Surat" value="{{ $data->kodeSurat }}">
-                                    @error('kodeSurat')
-                                        <p class="text-danger pt-1">{{ $message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="tanggal">Keterangan</label>
-                                    <input type="text" name="keterangan" class="" placeholder="Keterangan Surat" value="{{ $data->keterangan }}">
-                                    @error('tglMasuk')
-                                        <p class="text-danger pt-1">{{ $message}}</p>
-                                    @enderror
-                                </div>
-                                <button type="submit" class="btn">Tambah Surat</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-lg-9 bg-white pt-4 shadow-sm" style="border-radius:15px">
+            <div class="page-header mb-4">
+                <h3 class="page-title">Edit Jenis Surat</h3>
             </div>
+            <form action="/save-jenis" method="POST" class="forms-sample row" enctype="multipart/form-data">
+
+                {{ csrf_field() }}
+                
+                <div class="my-3">
+                    <label for="exampleInputEmail1" class="form-label">Kode Surat</label>
+                    <input type="text" name="kodeSurat" class="form-control" placeholder="Jenis Surat" value="{{ $data->kodeSurat }}">
+                    @error('pengirim')
+                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
+                    @enderror
+                </div>
+                <div class="my-3">
+                    <label for="exampleInputEmail1" class="form-label">Keterangan</label>
+                    <input type="text" name="keterangan" class="form-control" placeholder="Keterangan Surat" value="{{ $data->keterangan }}">
+                    @error('pengirim')
+                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
+                    @enderror
+                </div>
+                <div class="mt-4 ">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
