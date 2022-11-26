@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-  
+    protected $guarded = ['id'];
     /**
      * The attributes that are mass assignable.
      *
@@ -56,7 +56,11 @@ class User extends Authenticatable
     protected function type(): Attribute
     {
         return new Attribute(
-            get: fn ($value) =>  ["Maha", "Admin","Dekan","Ktu","Kaur"][$value],
+            get: fn ($value) =>  ["Admin", "Direktur","Dekan","Ktu","Kaur"][$value],
         );
+    }
+
+    public function jenisJabatan(){
+        return $this->belongsTo(JenisJabatan::class, 'jenisJabatan_id');
     }
 }
