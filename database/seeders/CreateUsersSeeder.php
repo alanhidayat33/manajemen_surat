@@ -22,7 +22,7 @@ class CreateUsersSeeder extends Seeder
             [
                'name'=>'Admin',
                'email'=>'admin@it.admin.pens.ac.id',
-               'type'=>0,
+               'type'=> 0,
                'jenisJabatan_id' => 1,
                'password'=> bcrypt('admin'),
             ],

@@ -19,12 +19,13 @@ class User extends Authenticatable
      * @var array
 
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'type'
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    //     'type',
+    //     'jabatan'
+    // ];
   
     /**
      * The attributes that should be hidden for serialization.
@@ -56,7 +57,7 @@ class User extends Authenticatable
     protected function type(): Attribute
     {
         return new Attribute(
-            get: fn ($value) =>  ["Admin", "Direktur","Dekan","Ktu","Kaur"][$value],
+            get: fn ($value) =>  ["Admin","Direktur","Wadir","Ktu","Kaur","Maha"][$value],
         );
     }
 

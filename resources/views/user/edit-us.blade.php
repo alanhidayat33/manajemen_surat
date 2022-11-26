@@ -51,6 +51,21 @@
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
+                <div class="col-md-4">
+                    <label for="inputState" class="form-label">Role</label>
+                    <select class="form-select" id="inputState" name="type" value="{{ $data->type }}">
+                        <option value="{{$data->type}}">{{$data->type}}</option>
+                        <option value="0">Admin</option>
+                        <option value="1">Direktur</option>
+                        <option value="2">Wadir</option>
+                        <option value="3">Ktu</option>
+                        <option value="4">Kaur</option>
+                        <option value="5">Maha</option>
+                    </select>
+                    @error('jenisSurat_id')
+                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
+                    @enderror
+                </div>
                 <div class="mt-4">
                     <button type="submit" class="btn btn-primary">Perbarui</button>
                 </div>

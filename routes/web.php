@@ -20,7 +20,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('auth\login');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -28,6 +28,9 @@ Auth::routes();
 //akses semua
 Route::group(['middleware' => ['auth', 'user-access:Admin,Maha,Kaur,Ktu,Dekan']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+
+    //view Surat Masuk
+    Route::get('/logout', [App\Http\Controllers\HomeController::class, 'logout']);
 
     //view Surat Masuk
     Route::get('/view-sm', [App\Http\Controllers\SuratMasukController::class, 'viewSm']);
@@ -49,21 +52,6 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
     Route::post('/update-user/{id}', [UserController::class, 'updateUser']);
     Route::get('/hapus-user/{id}', [UserController::class, 'hapusUser']);
 
-    //kelola surat masuk
-    Route::get('/input-sm', [SuratMasukController::class, 'inputSm']);
-    Route::post('/save-sm', [SuratMasukController::class, 'saveSm']);
-    Route::get('/edit-sm/{id}', [SuratMasukController::class, 'editSm']);
-    Route::post('/update-sm/{id}', [SuratMasukController::class, 'updateSm']);
-    Route::get('/hapus-sm/{id}', [SuratMasukController::class, 'hapusSm']);
-    Route::get('/hapus-fm/{id}', [SuratMasukController::class, 'hapusFm']);
-
-    //kelola surat keluar
-    Route::get('/input-sk', [SuratKeluarController::class, 'inputSk']);
-    Route::post('/save-sk', [SuratKeluarController::class, 'saveSk']);
-    Route::get('/edit-sk/{id}', [SuratKeluarController::class, 'editSk']);
-    Route::post('/update-sk/{id}', [SuratKeluarController::class, 'updateSk']);
-    Route::get('/hapus-sk/{id}', [SuratKeluarController::class, 'hapusSk']);
-
     //Kelola Jenis surat
     Route::get('/input-jenis', [JenisSuratController::class, 'inputJenis']);
     Route::post('/save-jenis', [JenisSuratController::class, 'saveJenis']);
@@ -72,10 +60,10 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
     Route::get('/hapus-jenis/{id}', [JenisSuratController::class, 'hapusJenis']);
 });
 
-//akses Kepala Urusan
-Route::group(['middleware' => ['auth', 'user-access:Kaur']], function () {
+//akses Kepala Tata Usaha
+Route::group(['middleware' => ['auth', 'user-access:Kaur,Admin']], function () {
 
-    //Permission Kaur Input Sm Only
+    //kelola surat masuk
     Route::get('/input-sm', [SuratMasukController::class, 'inputSm']);
     Route::post('/save-sm', [SuratMasukController::class, 'saveSm']);
     Route::get('/edit-sm/{id}', [SuratMasukController::class, 'editSm']);
@@ -85,7 +73,7 @@ Route::group(['middleware' => ['auth', 'user-access:Kaur']], function () {
 });
 
 //akses Kepala Tata Usaha
-Route::group(['middleware' => ['auth', 'user-access:Ktu']], function () {
+Route::group(['middleware' => ['auth', 'user-access:Ktu,Admin']], function () {
 
     //kelola surat keluar
     Route::get('/input-sk', [SuratKeluarController::class, 'inputSk']);
@@ -93,17 +81,4 @@ Route::group(['middleware' => ['auth', 'user-access:Ktu']], function () {
     Route::get('/edit-sk/{id}', [SuratKeluarController::class, 'editSk']);
     Route::post('/update-sk/{id}', [SuratKeluarController::class, 'updateSk']);
     Route::get('/hapus-sk/{id}', [SuratKeluarController::class, 'hapusSk']);
-});
-
-//akses Dekan & Wakil Dekan
-Route::group(['middleware' => ['auth', 'user-access:Dekan']], function () {
-
-    //kelola surat keluar
-    Route::get('/input-sk', [SuratKeluarController::class, 'inputSk']);
-    Route::post('/save-sk', [SuratKeluarController::class, 'saveSk']);
-    Route::get('/edit-sk/{id}', [SuratKeluarController::class, 'editSk']);
-    Route::post('/update-sk/{id}', [SuratKeluarController::class, 'updateSk']);
-    Route::get('/hapus-sk/{id}', [SuratKeluarController::class, 'hapusSk']);
-
-    //disposisi
 });

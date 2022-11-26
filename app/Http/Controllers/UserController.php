@@ -25,9 +25,10 @@ class UserController extends Controller
     {
         User::create([
             'name' => $x->name,
-            'jenisjabatan_id' => $x->jenisJabatan_id,
+            'jenisJabatan_id' => $x->jenisJabatan_id,
             'email' => $x->email,
-            'password' => Hash::make($x->input('password'))
+            'password' => Hash::make($x->input('password')),
+            'type' => $x->type,
         ]);
         return redirect('/view-user');
     }
@@ -46,6 +47,7 @@ class UserController extends Controller
             'jenisJabatan_id' => $x->jenisJabatan_id,
             'email' => $x->email,
             'password' => Hash::make($x->input('password')),
+            'type' => $x->type,
         ]);
         return redirect()->back()->with('toast_success', 'Data Berhasil Diperbarui!');
     }

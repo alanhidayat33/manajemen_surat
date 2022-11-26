@@ -13,6 +13,7 @@ class JenisJabatan extends Model
     protected $table = "jenis_jabatan";
     protected $primaryKey = "id";
     protected $guarded = ['id'];
+    protected $fillable = ["kodeJabatan"];
 
     public function Users(){
         return $this->hasMany(User::class, 'jenisJabatan_id');

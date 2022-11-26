@@ -25,6 +25,7 @@
                             <th> Jabatan </th>
                             <th> Email </th>
                             <th> Password </th>
+                            <th> Role </th>
                         </tr>
                     </thead>
                     <tbody class="overflow-scroll">
@@ -35,6 +36,21 @@
                             <td>{{ $x->jenisJabatan['kodeJabatan'] }}</td>
                             <td>{{ $x->email }}</td>
                             <td>{{ $x->password }}</td>
+                            <td>
+                                @if($x->type == 'Admin')
+                                    Admin
+                                @elseif ($x->type == 'Direktur')
+                                    direktur
+                                @elseif ($x->type == 'Wadir')
+                                    Wadir
+                                @elseif ($x->type == 'Ktu')
+                                    Ktu
+                                @elseif ($x->type == 'Kaur')
+                                    Kaur
+                                @elseif ($x->type == 'Maha')
+                                    Maha
+                                @endif
+                            </td>
                             <td>
                                 @if (auth()->user()->type == 'Admin')
                                 <a type="button" href="/edit-user/{{ $x->id }}" class="btn btn-sm btn-primary"
