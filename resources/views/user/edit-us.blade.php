@@ -54,7 +54,7 @@
                 <div class="col-md-4">
                     <label for="inputState" class="form-label">Role</label>
                     <select class="form-select" id="inputState" name="type" value="{{ $data->type }}">
-                        <option value="{{$data->type}}">{{$data->type}}</option>
+                        <option value="">{{$data->type}}</option>
                         <option value="0">Admin</option>
                         <option value="1">Direktur</option>
                         <option value="2">Wadir</option>

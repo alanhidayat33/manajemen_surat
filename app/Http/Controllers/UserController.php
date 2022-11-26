@@ -42,13 +42,41 @@ class UserController extends Controller
 
     public function updateUser(Request $x,$id)
     {
-        User::where('id', $id)->update([
-            'name' => $x->name,
-            'jenisJabatan_id' => $x->jenisJabatan_id,
-            'email' => $x->email,
-            'password' => Hash::make($x->input('password')),
-            'type' => $x->type,
-        ]);
+        $data = User::find($id);
+        if ($x->password == $data->password && $x->type == null ) 
+        {
+            User::where('id', $id)->update([
+                'name' => $x->name,
+                'jenisJabatan_id' => $x->jenisJabatan_id,
+                'email' => $x->email,
+            ]);
+        }
+        else if ($x->password == $data->password && $x->type != null) {
+            User::where('id', $id)->update([
+                'name' => $x->name,
+                'jenisJabatan_id' => $x->jenisJabatan_id,
+                'email' => $x->email,
+                'type' => $x->type,
+            ]);
+        }
+        else if ($x->type == null && $x->password != $data->password) {
+            User::where('id', $id)->update([
+                'name' => $x->name,
+                'jenisJabatan_id' => $x->jenisJabatan_id,
+                'email' => $x->email,
+                'password' => Hash::make($x->input('password')),
+            ]);
+        }
+        else 
+        {
+            User::where('id', $id)->update([
+                'name' => $x->name,
+                'jenisJabatan_id' => $x->jenisJabatan_id,
+                'email' => $x->email,
+                'password' => Hash::make($x->input('password')),
+                'type' => $x->type,
+            ]);
+        }
         return redirect()->back()->with('toast_success', 'Data Berhasil Diperbarui!');
     }
 
