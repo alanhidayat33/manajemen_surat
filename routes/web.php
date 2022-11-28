@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JenisSuratController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -20,13 +21,13 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
        
 //akses semua
-Route::group(['middleware' => ['auth', 'user-access:Admin,Maha,Kaur,Ktu,Dekan']], function () {
+Route::group(['middleware' => ['auth', 'user-access:Admin,Direktur,Wadir,Ktu,Kaur']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
     //view Surat Masuk
@@ -61,8 +62,17 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
 });
 
 //akses Kepala Tata Usaha
-Route::group(['middleware' => ['auth', 'user-access:Kaur,Admin']], function () {
+Route::group(['middleware' => ['auth', 'user-access:Kaur,Admin']], function () 
+{
+     //kelola disposisi
+    Route::get('/view-disposisi/{id}',[DisposisiController::class, 'viewDp']);
+    Route::get('/input-disposisi/{id}',[DisposisiController::class, 'inputDp']);
+    Route::post('/save-disposisi',[DisposisiController::class, 'saveDp']);
+});
 
+//akses Kepala Tata Usaha
+Route::group(['middleware' => ['auth', 'user-access:Ktu,Admin']], function () 
+{
     //kelola surat masuk
     Route::get('/input-sm', [SuratMasukController::class, 'inputSm']);
     Route::post('/save-sm', [SuratMasukController::class, 'saveSm']);
@@ -70,10 +80,6 @@ Route::group(['middleware' => ['auth', 'user-access:Kaur,Admin']], function () {
     Route::post('/update-sm/{id}', [SuratMasukController::class, 'updateSm']);
     Route::get('/hapus-sm/{id}', [SuratMasukController::class, 'hapusSm']);
     Route::get('/hapus-fm/{id}', [SuratMasukController::class, 'hapusFm']);
-});
-
-//akses Kepala Tata Usaha
-Route::group(['middleware' => ['auth', 'user-access:Ktu,Admin']], function () {
 
     //kelola surat keluar
     Route::get('/input-sk', [SuratKeluarController::class, 'inputSk']);

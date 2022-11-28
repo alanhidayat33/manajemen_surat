@@ -18,4 +18,8 @@ class SuratMasuk extends Model
     public function jenisSurat(){
         return $this->belongsTo(jenisSurat::class, 'jenisSurat_id');
     }
+
+    public function disposisi(){
+        return this->hasMany(disposisi::class, 'sm_id');
+    }
 }

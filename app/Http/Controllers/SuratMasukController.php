@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\JenisSurat;
 use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
+use App\Models\disposisi;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +18,7 @@ class SuratMasukController extends Controller
     public function viewSm()
     {
         $dataSm = SuratMasuk::all();
+        $dispo = disposisi::all();
         return view("surat-m.view-sm", ['data' => $dataSm]);
     }
 
@@ -136,6 +138,7 @@ class SuratMasukController extends Controller
         try {
             $data = SuratMasuk::where('id', $idSmasuk)->first();
             File::delete($data->file);
+            disposisi::where('id', $idSmasuk)->delete();
             SuratMasuk::where('id', $idSmasuk)->delete();
             return redirect('/view-sm')->with('toast_success', 'Data berhasil di hapus!');
             

@@ -38,7 +38,7 @@ class HomeController extends Controller
         $dataSm = SuratMasuk::all();
 
         $data = [$data2, $keluar, $suratMasuk, $total, $dataSm];
-        return view("home",['data'=>$data] );
+        return view("home",['data'=>$data],['datas' => $dataSm] );
     }
 
     public function logout(){

@@ -17,7 +17,9 @@ class CreateUsersSeeder extends Seeder
     
     public function run()
     {
-        JenisJabatan::create(['kodeJabatan' => 'Admin']);
+        JenisJabatan::create([
+            'kodeJabatan' => 'Admin',
+        ]);
         $users = [
             [
                'name'=>'Admin',

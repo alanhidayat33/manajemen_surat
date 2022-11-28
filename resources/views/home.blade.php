@@ -134,22 +134,22 @@
                                                 d="M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z" />
                                         </svg>Daftar Surat</h5>
                                     <div class="container">
-                                        @for ($i = 1; $i < 7; $i++) 
-                                        <div class="row mb-2">
-                                            <div class="col-3">
-                                                <div class="border-0 position-relative"
-                                                    style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
-                                                    <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
-                                                        style="width:35px"
-                                                        class="position-absolute top-50 start-50 translate-middle">
+                                        @foreach ($datas as $x)
+                                            <div class="row mb-2">
+                                                <div class="col-3">
+                                                    <div class="border-0 position-relative"
+                                                        style="background-color:rgb(255, 244, 184); width: 50px; height:50px; border-radius:10px">
+                                                        <img src="{{ URL::to('/assets/img/561249.png') }}" alt=""
+                                                            style="width:35px"
+                                                            class="position-absolute top-50 start-50 translate-middle">
+                                                    </div>
+                                                </div>
+                                                <div class="col text-dark">
+                                                    <h6 class="lh-0 mb-0 fw-bold">{{$x->noSmasuk}}</h6>
+                                                    <p class="lh-0 mt-0 text-secondary">{{$x->JenisSurat['keterangan']}}</p>
                                                 </div>
                                             </div>
-                                            <div class="col text-dark">
-                                                <h6 class="lh-0 mb-0 fw-bold">Judul Surat</h6>
-                                                <p class="lh-0 mt-0 text-secondary">Jenis Surat</p>
-                                            </div>
-                                        </div>
-                                        @endfor
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

@@ -18,4 +18,8 @@ class JenisJabatan extends Model
     public function Users(){
         return $this->hasMany(User::class, 'jenisJabatan_id');
     }
+
+    public function disposisi(){
+        return $this->hasMany(disposisi::class, 'tujuan');
+    }
 }
