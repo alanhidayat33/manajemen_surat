@@ -79,6 +79,7 @@
                             <th> Pengirim </th>
                             <th> Jenis Surat</th>
                             <th> File </th>
+                            <th> Disposisi</th>
                             <th> Action</th>
                         </tr>
                     </thead>
@@ -100,6 +101,13 @@
                                                 Download
                                             </a>
                                             @endempty
+                                        </td>
+                                        <td>
+                                            <a type="button" href="{{ $x->file }}" class="btn btn-sm btn-danger"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                                Belum Rilis
+                                            </a>
                                         </td>
                                         <td>
                                             @if (auth()->user()->type == 'Ktu')
