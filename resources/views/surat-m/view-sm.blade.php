@@ -33,7 +33,7 @@
                         </tr>
                     </thead>
                     <tbody class="overflow-scroll">
-                            @foreach ($data as $x)
+                            @foreach ($result as $x)
                                     <tr>
                                         <td>{{ $loop->iteration  }}</td>
                                         <td>{{ $x->noSmasuk }}</td>
@@ -53,11 +53,11 @@
                                             @endempty
                                         </td>
                                         <td>
-                                            @if($x->done == 1)
-                                                <span class="btn btn-sm btn-warning"><i class="bi bi-file-earmark-excel-fill"></i> Tidak
+                                             @if($SM[0]->read == 1)
+                                                <span class="btn btn-sm btn-success"><i class="bi bi-file-earmark-excel-fill"></i>
                                                     Sudah ditanggapi </span>
                                             @else
-                                                <span class="btn btn-sm btn-danger"><i class="bi bi-file-earmark-excel-fill"></i> Tidak
+                                                <span class="btn btn-sm btn-danger"><i class="bi bi-file-earmark-excel-fill"></i>
                                                     Belum Ditanggapi </span>
                                             @endif
                                         </td>
@@ -82,7 +82,7 @@
                             <th> Action</th>
                         </tr>
                     </thead>
-                    @foreach ($datas as $x)
+                    @foreach ($dataSm as $x)
                                     <tr>
                                         <td>{{ $loop->iteration  }}</td>
                                         <td>{{ $x->noSmasuk }}</td>

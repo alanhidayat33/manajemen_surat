@@ -11,6 +11,12 @@
                 <div class="page-header d-flex justify-content-between px-4">
                     <h3 class="page-title fw-bold ">Disposisi</h3>
                     @if (auth()->user()->type == 'Kaur' || auth()->user()->type == 'Admin')
+                    <a type="button" href="#"
+                                    onclick="return confirm('Apakah Anda Yakin Ingin Mengarsipkan ?')"
+                                    class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top"
+                                    title="Arsipkan">
+                                    <i class="bi bi-archive-fill"></i> Arsipkan
+                                </a>
                     <a href="/input-disposisi/{{$smasuk->id}}" type="button" class="btn btn-primary">
                         <i class="bi bi-envelope-plus"></i> Tambah Disposisi</a>
                     @endif
@@ -26,6 +32,7 @@
                             <th> Catatan </th>
                             <th> Sifat </th>
                             <th> Status</th>
+                            <th> Tanggapan </th>
                         </tr>
                     </thead>
                     <tbody class="overflow-scroll">
@@ -36,8 +43,8 @@
                             <td>{{ $x->catatan }}</td>
                             <td>{{ $x->sifat }}</td>
                             <td>
-                                @if ($x->status == 1)
-                                <a type="button" href="/edit-sm/{{ $x->id }}" class="btn btn-sm btn-primary"
+                                @if ($x->read == 1)
+                                <a type="button" href="/edit-sm/{{ $x->id }}" class="btn btn-sm btn-success"
                                     data-toggle="tooltip" data-placement="top" title="Edit">
                                     <i class="bi bi-envelope-check-fill"></i>
                                     
@@ -52,6 +59,7 @@
                                 @endif
 
                             </td>
+                            <td>{{ $x->tanggapan }}</td>
                         </tr>
                         @endforeach
                     </tbody>

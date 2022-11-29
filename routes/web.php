@@ -67,6 +67,7 @@ Route::group(['middleware' => ['auth', 'user-access:Direktur,Wadir,Admin']], fun
      //kelola disposisi
     Route::get('/input-disp/{id}',[DisposisiController::class, 'inputDisp']);
     Route::post('/save-disp',[DisposisiController::class, 'saveDp']);
+    Route::post('/update-disp/{id}',[DisposisiController::class, 'updateDp']);
 });
 
 //akses Kepala Tata Usaha

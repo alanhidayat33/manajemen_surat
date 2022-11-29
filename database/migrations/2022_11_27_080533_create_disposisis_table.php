@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('catatan');
             $table->string('sifat');
             $table->boolean('done');
+            $table->string('tanggapan')->nullable();
+            $table->string('sebar')->nullable();
             $table->boolean('read');
             $table->unsignedBigInteger('sm_id');
             $table->foreign('sm_id')->references('id')->on('surat_masuk');

@@ -26,15 +26,29 @@ class SuratMasukController extends Controller
 
         //menampilkan SM disposisi yg berhubungan dengan tujuan disposisi
         $id_user = Auth::user()->jenisJabatan_id;
-        $SM = disposisi::where('tujuan', $id_user)->get();
         $result = SuratMasuk::whereHas('disposisi', function($query) use($id_user)
         {
             $query->where('tujuan', $id_user);
         })->get();
-        return view("surat-m.view-sm", 
-            ['data' => $result], 
-            ['datas' => $dataSm],
-        );
+
+        $result2 = SuratMasuk::whereHas('disposisi', function($query) use($id_user)
+        {
+            $query->where('tujuan', $id_user);
+        })->first();
+
+        if(Auth::user()->type == 'Direktur' || Auth::user()->type == 'Wadir')
+        {
+            if($result2 == null){
+                return view("surat-m.view-sm", compact('result','dataSm', 'result2')); 
+            }
+            else{
+                $disp = $result[0]->id;
+                $SM = disposisi::where('sm_id', $disp)->where('tujuan', Auth::user()->jenisJabatan_id )->get();
+                return view("surat-m.view-sm", compact('result','SM'));   
+            }
+        }
+        return view("surat-m.view-sm", compact('dataSm', 'result2')); 
+        
     }
 
     //Input surat masuk
@@ -103,6 +117,7 @@ class SuratMasukController extends Controller
  
     public function updateSm($idSmasuk, Request $x)
     {
+        dd($idSmasuk);
         //Validasi
         $messages = [
             'noSmasuk.required' => 'Nomor surat tidak boleh kosong!',

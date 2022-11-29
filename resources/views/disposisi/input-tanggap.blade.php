@@ -14,15 +14,12 @@
                         <i class="bi bi-envelope-plus"></i> Kembali</a>
                     @endif
                 </div>
-            <form action="/save-disposisi" method="POST" class="forms-sample row" enctype="multipart/form-data">
+            <form action="/update-disp/{{$data->sm_id}}" method="POST" class="forms-sample row" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
-                <div class="form-group">
-                    <input type="hidden" name="sm_id" placeholder="id surat" value="">
-                </div>
                 <div class="col-md-12">
                     <label for="inputZip" class="form-label">Tanggapan</label>
-                    <input type="text" name="catatan" class="form-control" value="{{ old('catatan') }}">
+                    <input type="text" name="tanggapan" class="form-control" value="{{ old('tanggapan') }}">
                     @error('tanggapan')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
@@ -33,9 +30,12 @@
                     </div>
                     <div class="col-md-10">
                         <!-- <select class="form-select" id="inputState" name="tujuan" value="{{ old('tujuan') }}"> -->
-                        @if(auth()->user()->jenisJabatan_id == '4')
-                            @foreach($data as $x)    
-                                <input type="checkbox"> {{$x}}
+                        @if(auth()->user()->jenisJabatan_id == '2')
+                            @foreach($wadirU as $x)
+                                <input type="checkbox" name="sebar[]" value="{{$x}}">{{$x}} &nbsp;
+                                @if($loop->iteration == 3)
+                                    <br>
+                                @endif
                             @endforeach
                         @endif
                         </select>

@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="inputState" class="form-label">Sifat</label>
-                    <select class="form-select" id="inputState" name="sifat" value="{{ old('jenisSurat_id') }}">
+                    <select class="form-select" id="inputState" name="sifat" value="{{ old('sifat') }}">
                         <option value="Rahasia">Rahasia</option>
                         <option value="Segera">Segera</option>
                         <option value="Segera">Sangat Segera</option>

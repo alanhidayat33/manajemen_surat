@@ -27,21 +27,33 @@ class DisposisiController extends Controller
 
     public function saveDp(Request $x)
     {
+        // dd($x->tujuan);
         Disposisi::create([
-            'tujuan' => $x->tujuan,
             'catatan' => $x->catatan,
             'sifat' => $x->sifat,
+            'tujuan' => $x->tujuan,
             'done' => 0,
             'read' => 0,
             'sm_id' => $x->sm_id,
-            'users_id' => Auth::id(),
         ]);
         return redirect()->back();
     }
 
-    public function inputDisp(){
-        $wadirU = ['UPT Perpustakaan', 'UPT Perjuangan'];
-        return view('disposisi.input-tanggap', ['data' => $wadirU]);
+
+    //ranah Direktur & Wadir
+    public function inputDisp($id){
+        $idDispo = disposisi::where('sm_id',$id)->first();
+        $wadirU = ['UPT Perpustakaan', 'UPT Perjuangan', 'UPT Keuangan', 'UPT Kebajikan', 'UPT Keyakinan'];
+        return view('disposisi.input-tanggap', ['wadirU' => $wadirU], ['data' => $idDispo ]);
+    }
+
+    public function updateDp($id,Request $x){
+        disposisi::where('sm_id', $id)->where('tujuan', Auth::user()->jenisJabatan_id )->update([
+            'tanggapan' => $x->tanggapan,
+            'sebar' => json_encode($x->sebar),
+            'read' => 1,
+        ]);
+        return redirect('/view-sm');
     }
 
 
