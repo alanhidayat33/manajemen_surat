@@ -20,27 +20,31 @@
                 <div class="form-group">
                     <input type="hidden" name="sm_id" placeholder="id surat" value="">
                 </div>
-                <div class="col-md-4">
-                    <label for="inputZip" class="form-label">tanggapan</label>
+                <div class="col-md-12">
+                    <label for="inputZip" class="form-label">Tanggapan</label>
                     <input type="text" name="catatan" class="form-control" value="{{ old('catatan') }}">
                     @error('tanggapan')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
-                <div class="col-md-4">
-                    <label for="inputState" class="form-label">Diteruskan Kepada</label>
-                    <!-- <select class="form-select" id="inputState" name="tujuan" value="{{ old('tujuan') }}"> -->
-                    @if(auth()->user()->jenisJabatan_id == '4')
-                        @foreach($data as $x)    
-                            <input type="checkbox"> {{$x}}
-                        @endforeach
-                    @endif
-                    </select>
-                    @error('sifat')
-                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
-                    @enderror
+                <div class="row mt-3">
+                    <div class="col-md-2">
+                        <label for="inputState" class="form-label">Diteruskan Kepada : </label>
+                    </div>
+                    <div class="col-md-10">
+                        <!-- <select class="form-select" id="inputState" name="tujuan" value="{{ old('tujuan') }}"> -->
+                        @if(auth()->user()->jenisJabatan_id == '4')
+                            @foreach($data as $x)    
+                                <input type="checkbox"> {{$x}}
+                            @endforeach
+                        @endif
+                        </select>
+                        @error('sifat')
+                        <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
+                        @enderror
+                    </div>
                 </div>
-                <div class="mt-4">
+                <div class="mt-3">
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
                 
