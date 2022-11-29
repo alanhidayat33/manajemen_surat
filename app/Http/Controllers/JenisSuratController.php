@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class JenisSuratController extends Controller
 {
@@ -78,5 +79,10 @@ class JenisSuratController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/view-jenis')->with('toast_error', 'Data tidak bisa di hapus!');
         }
+    }
+
+    public function printJenis()
+    {
+        return view('disposisi.lembar-disposisi');
     }
 }

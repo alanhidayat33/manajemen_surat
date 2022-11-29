@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\disposisi;
 use App\Models\SuratMasuk;
 use App\Models\JenisJabatan;
+use App\Models\JenisSurat;
+use PDF;
 
 
 class DisposisiController extends Controller
@@ -56,5 +58,10 @@ class DisposisiController extends Controller
         return redirect('/view-sm');
     }
 
-
+    public function detailDp()
+    {
+        $data = JenisSurat::all();
+        $pdf = PDF::loadview('view-jenis', compact('data'));
+        return $pdf->stream();
+    }
 }

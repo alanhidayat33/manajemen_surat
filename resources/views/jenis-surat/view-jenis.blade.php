@@ -13,6 +13,8 @@
                     @if (auth()->user()->type == 'Admin')
                     <a href="input-jenis" type="button" class="btn btn-primary">
                         <i class="bi bi-envelope-plus"></i> Tambah</a>
+                    <a href="print-jenis" type="button" class="btn btn-primary">
+                        <i class="bi bi-envelope-plus"></i> Tambah</a>
                     @endif
                 </div>
             </div>
