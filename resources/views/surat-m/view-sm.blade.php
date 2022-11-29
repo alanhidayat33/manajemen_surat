@@ -19,6 +19,7 @@
             
             <div class="row mt-2 p-3  bg-white">
                 <table class="table table-striped">
+                @if(Auth()->user()->type == 'Direktur' || Auth()->user()->type == 'Wadir' )
                     <thead>
                         <tr>
                             <th>No</th>
@@ -32,7 +33,6 @@
                         </tr>
                     </thead>
                     <tbody class="overflow-scroll">
-                        @if(Auth()->user()->type == 'Direktur' || Auth()->user()->type == 'Wadir' )
                             @foreach ($data as $x)
                                     <tr>
                                         <td>{{ $loop->iteration  }}</td>
@@ -68,55 +68,66 @@
                                             </a>
                                         </td>
                                     </tr>
-                                @endforeach
-                        @else
-                            @foreach ($datas as $x)
-                                <tr>
-                                    <td>{{ $loop->iteration  }}</td>
-                                    <td>{{ $x->noSmasuk }}</td>
-                                    <td>{{ $x->tglMasuk }}</td>
-                                    <td>{{ $x->pengirim }}</td>
-                                    <td>{{ $x->jenisSurat['keterangan'] }}</td>
-                                    <td>
-                                        @empty($x->file)
-                                        <span class="btn btn-sm btn-warning"><i class="bi bi-file-earmark-excel-fill"></i> Tidak
-                                            ada </span>
-                                        @else
-                                        <a type="button" href="{{ $x->file }}" class="btn btn-sm btn-success"
-                                            data-toggle="tooltip" data-placement="top" title="Edit">
-                                            <i class="bi bi-file-earmark-arrow-down-fill"></i>
-                                            Download
-                                        </a>
-                                        @endempty
-                                    </td>
-                                    <td>
-                                        @if (auth()->user()->type == 'Ktu')
-                                        <a type="button" href="/edit-sm/{{ $x->id }}" class="btn btn-sm btn-primary"
-                                            data-toggle="tooltip" data-placement="top" title="Edit">
-                                            <i class="bi bi-pencil-fill"></i>
-                                        </a>
-                                        <a type="button" href="/hapus-sm/{{ $x->id }}"
-                                            onclick="return confirm('Apakah anda yakin menghapus data?')"
-                                            class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top"
-                                            title="Delete">
-                                            <i class="bi bi-trash-fill"></i>
-                                        </a>
-                                        @elseif (auth()->user()->type == 'Kaur')
-                                        <a type="button" href="/view-disposisi/{{ $x->id }}" class="btn btn-sm btn-primary"
-                                            data-toggle="tooltip" data-placement="top" title="Edit">
-                                            <i class="bi bi-send-check"></i>
-                                        </a>
-                                        @elseif (auth()->user()->type == 'Direktur' || auth()->user()->type == 'Wadir')
-                                        <a type="button" href="/aksi-disposisi/{{ $x->id }}" class="btn btn-sm btn-primary"
-                                            data-toggle="tooltip" data-placement="top" title="Edit">
-                                            <i class="bi bi-send-check"></i>
-                                        </a>
-                                        @endif
-                                    </td>
-                                </tr>
                             @endforeach
-                        @endif
                     </tbody>
+                @else
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th> Nomor Surat </th>
+                            <th> Tanggal Surat </th>
+                            <th> Pengirim </th>
+                            <th> Jenis Surat</th>
+                            <th> File </th>
+                            <th> Action</th>
+                        </tr>
+                    </thead>
+                    @foreach ($datas as $x)
+                                    <tr>
+                                        <td>{{ $loop->iteration  }}</td>
+                                        <td>{{ $x->noSmasuk }}</td>
+                                        <td>{{ $x->tglMasuk }}</td>
+                                        <td>{{ $x->pengirim }}</td>
+                                        <td>{{ $x->jenisSurat['keterangan'] }}</td>
+                                        <td>
+                                            @empty($x->file)
+                                            <span class="btn btn-sm btn-warning"><i class="bi bi-file-earmark-excel-fill"></i> Tidak
+                                                ada </span>
+                                            @else
+                                            <a type="button" href="{{ $x->file }}" class="btn btn-sm btn-success"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-file-earmark-arrow-down-fill"></i>
+                                                Download
+                                            </a>
+                                            @endempty
+                                        </td>
+                                        <td>
+                                            @if (auth()->user()->type == 'Ktu')
+                                            <a type="button" href="/edit-sm/{{ $x->id }}" class="btn btn-sm btn-primary"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </a>
+                                            <a type="button" href="/hapus-sm/{{ $x->id }}"
+                                                onclick="return confirm('Apakah anda yakin menghapus data?')"
+                                                class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top"
+                                                title="Delete">
+                                                <i class="bi bi-trash-fill"></i>
+                                            </a>
+                                            @elseif (auth()->user()->type == 'Kaur')
+                                            <a type="button" href="/view-disposisi/{{ $x->id }}" class="btn btn-sm btn-primary"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-send-check"></i>
+                                            </a>
+                                            @elseif (auth()->user()->type == 'Direktur' || auth()->user()->type == 'Wadir')
+                                            <a type="button" href="/aksi-disposisi/{{ $x->id }}" class="btn btn-sm btn-primary"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-send-check"></i>
+                                            </a>
+                                            @endif
+                                        </td>
+                                    </tr>
+                    @endforeach
+                @endif
                 </table>
             </div>
         </div>
