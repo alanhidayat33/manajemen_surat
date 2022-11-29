@@ -5,7 +5,7 @@
     <div class="container py-5 h-100">
         <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-8 col-lg-7 col-xl-6">
-                <img src="{{ URL::to('/assets/img/login.jpg') }}"
+                <img src="{{ URL::to('/assets/img/sampul.jpg') }}"
                     class="img-fluid" alt="Phone image">
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -54,7 +54,7 @@
 
                     <!-- Submit button -->
                     <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-danger" type="submit">{{ __('Sign In') }}</button>
+                        <button class="btn btn-lg btn-primary" type="submit">{{ __('Sign In') }}</button>
                     </div>
 
                 </form>
