@@ -6,8 +6,11 @@ use App\Models\JenisSurat;
 use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
 use App\Models\disposisi;
+use App\Models\JenisJabatan;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+Use DB;
 
 class SuratMasukController extends Controller
 {
@@ -19,7 +22,19 @@ class SuratMasukController extends Controller
     {
         $dataSm = SuratMasuk::all();
         $dispo = disposisi::all();
-        return view("surat-m.view-sm", ['data' => $dataSm]);
+        $jabatan = JenisJabatan::all();
+
+        //menampilkan SM disposisi yg berhubungan dengan tujuan disposisi
+        $id_user = Auth::user()->jenisJabatan_id;
+        $SM = disposisi::where('tujuan', $id_user)->get();
+        $result = SuratMasuk::whereHas('disposisi', function($query) use($id_user)
+        {
+            $query->where('tujuan', $id_user);
+        })->get();
+        return view("surat-m.view-sm", 
+            ['data' => $result], 
+            ['datas' => $dataSm],
+        );
     }
 
     //Input surat masuk

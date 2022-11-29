@@ -20,6 +20,6 @@ class SuratMasuk extends Model
     }
 
     public function disposisi(){
-        return this->hasMany(disposisi::class, 'sm_id');
+        return $this->hasMany(disposisi::class, 'sm_id');
     }
 }

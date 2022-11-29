@@ -61,6 +61,14 @@ Route::group(['middleware' => ['auth', 'user-access:Admin']], function () {
     Route::get('/hapus-jenis/{id}', [JenisSuratController::class, 'hapusJenis']);
 });
 
+//akses Direktur & Wadir
+Route::group(['middleware' => ['auth', 'user-access:Direktur,Wadir,Admin']], function () 
+{
+     //kelola disposisi
+    Route::get('/input-disp/{id}',[DisposisiController::class, 'inputDisp']);
+    Route::post('/save-disp',[DisposisiController::class, 'saveDp']);
+});
+
 //akses Kepala Tata Usaha
 Route::group(['middleware' => ['auth', 'user-access:Kaur,Admin']], function () 
 {

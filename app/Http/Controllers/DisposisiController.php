@@ -39,5 +39,10 @@ class DisposisiController extends Controller
         return redirect()->back();
     }
 
+    public function inputDisp(){
+        $wadirU = ['UPT Perpustakaan', 'UPT Perjuangan'];
+        return view('disposisi.input-tanggap', ['data' => $wadirU]);
+    }
+
 
 }
