@@ -151,6 +151,7 @@ class SuratMasukController extends Controller
     public function hapusSm($idSmasuk)
     {
         try {
+            disposisi::where('sm_id', $idSmasuk)->delete();
             $data = SuratMasuk::where('id', $idSmasuk)->first();
             File::delete($data->file);
             disposisi::where('id', $idSmasuk)->delete();
