@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container justify-center">
         <a class="navbar-brand fw-bold" href="{{ url('/') }}">
-            <img src="{{ URL::to('/assets/img/letter.png') }}" alt="" style="width:30px;">
+            <img src="{{ URL::to('/assets/img/5540782.png') }}" alt="" style="width:30px;">
             {{ config('app.name', 'Surat.in') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
