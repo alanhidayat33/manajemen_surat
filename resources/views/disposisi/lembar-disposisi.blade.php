@@ -1,139 +1,107 @@
-<html>
+@extends("layouts.kosong")
 
-<head>
-    <title>LEMBAR DISPOSISI SURAT</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-</head>
-
-<body>
-    <style type="text/css">
-        table tr td,
-        table tr th {
-            font-size: 11pt;
-        }
-
-        footer {
-            position: fixed;
-            bottom: -40px;
-            left: 0px;
-            right: 0px;
-            height: 50px;
-            font-size: 9pt;
-
-            /** Extra personal styles **/
-            text-align: center;
-            line-height: 35px;
-        }
-
-        .line {
-            line-height: 50%;
-        }
-    </style>
-    <div class="row">
-        <center class="line">
-            <img src="/file/logo/logo.png" width="80">
-            <h2>namaku</h2>
-            <p>Alamat : a,lmt </p>
-            <p>Email : mail </p>
-            <hr>
-        </center>
+@section('content')
+<!-- Awal Header -->
+<div class="justify-content-center row text-center row mt-3">
+    <div class="col-1 px-0">
+        <img class="" src="/file/logo/logo.png" style="width:80px">
     </div>
-    <table class="table table-bordered table-active" bgcolor="#FFFFFF">
+    <div class="col-6 px-0 align-self-start">
+        <div class="text-center">
+            <h2 class="lh-0 pb-0 mb-0">POLITEKNIK ELEKTRONIKA NEGERI SURABAYA</h2>
+            <p class="lh-0 pb-0 mb-0">Alamat : Jl. Raya ITS, Keputih, Kec. Sukolilo, Kota SBY, Jawa Timur 60111</p>
+            <p class="lh-0 pb-0 mb-0">Email : humas@pens.ac.id </p>
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+<div class="container mt-4">
+    <table class="table table-bordered ">
         <tr>
             <td colspan="6" align="center">
-                <h6>LEMBAR DISPOSISI</h6>
+                <h6 class="fw-bolder lh-0 pb-0">LEMBAR DISPOSISI</h6>
             </td>
         </tr>
         <tr>
             <td>
-                Tanggal Surat
+                <p class="lh-0 pb-0 mb-0">Surat Dari : ALAN TRI ARBANI HIDAYAT</p>
+                <p class="lh-0 pb-0 mb-0">Jl. Solo Km. 12 No.52</p>
+                <p class="lh-0 pb-0 mb-0">Yogyakarta</p>
+                <br>
+                <p class="lh-0 pb-0 mb-0">Nomor Surat : 045/II/02/2022</p>
+                <br>
+                <p class="lh-0 pb-0 mb-0">Tanggal Surat : 6 Februari 2022</p>
             </td>
-            <td colspan="4"> awdawda</td>
-            <td rowspan="2">Kode : <br> <b>awdawddaw</b></td>
-        </tr>
-        <tr>
             <td>
-                Nomor Surat
-            </td>
-            <td colspan="4"> asdf</td>
-        </tr>
-        <tr>
-            <td>
-                Asal Surat
-            </td>
-            <td colspan="5"> asdf</td>
-        </tr>
-        <tr>
-            <td>
-                Isi Ringkas
-            </td>
-            <td colspan="5"> asdf</td>
-        </tr>
-        <tr>
-            <td>
-                Diterima Tanggal
-            </td>
-            <td colspan="5">
-                wadawdawd<br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                No. Agenda
-            </td>
-            <td colspan="5">
-                awdasdasdwad<br>
+                <p class="lh-0 pb-0 mb-0">Diterima Tanggal : 6 Februari 2022</p>
+                <p class="lh-0 pb-0 mb-0">Nomor Agenda : 128</p>
+                <br>
+                <p class="lh-0 pb-0 mb-0">Sifat Surat : </p>
+                <div class="check">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                            value="option1">
+                        <label class="form-check-label" for="inlineRadio1">Segera</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Sangat Segera</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                            value="option2">
+                        <label class="form-check-label" for="inlineRadio2">Rahasia</label>
+                    </div>
+                </div>
             </td>
         </tr>
         <tr>
-            <td>
-                Diteruskan Kepada
-            </td>
-            <td colspan="5">
-                awdawdawd<br>
+            <td colspan="2">
+                <p class="lh-0 pb-0 mb-0">Perihal :</p>
+                <p class="lh-0 pb-0 mb-0">Tidak ada</p>
             </td>
         </tr>
         <tr>
             <td>
-                Isi Disposisi
+                <p class="lh-0 pb-0 mb-0">Diteruskan Kepada :</p>
+                <ol class="list-group-numbered border-0">
+                    <li class="list-group-item">Direktur</li>
+                    <li class="list-group-item">Wakil Direktur</li>
+                    <li class="list-group-item">Bagian Keuangan</li>
+                </ol>
             </td>
-            <td colspan="5">
-                wadawdaw<br>
+            <td>
+                <p class="lh-0 pb-0 mb-0">Dengan Hormat Harap :</p>
+                <ul style="list-style-type: circle">
+                    <li >Proses Lebih lanjut</li>
+                    <li >Koordinasi</li>
+                    <li >.......</li>
+                </ul>
             </td>
         </tr>
         <tr>
-            <td>
-                Batas Waktu
-            </td>
-            <td colspan="5">
-                Haloasdf<br>
+            <td colspan="2">
+                <p class="lh-0 pb-0 mb-0">Catatan :</p>
+                <p class="lh-0 pb-0 mb-0">Tidak ada</p>
             </td>
         </tr>
         <tr>
-            <td>
-                Sifat
-            </td>
-            <td colspan="5">
-                Wassw
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Catatan
-            </td>
-            <td colspan="5">
-                Yaha<br>
+            <td colspan="2">
+                <div align="right">
+                    <p> Kepala, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br><br><br><br> <u><b>awdaw</b></u> </p>
+                </div>
             </td>
         </tr>
     </table>
-    <br>
-    <p align="right"> Kepala, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <br><br><br><br> <u><b>awdaw</b></u> </p>
+    <div class="text-center">
+        <span>
+            Copyright &copy; | Surat.in | <?php echo date("d-m-Y h:i:s");?>
+        </span>
     </div>
-    <footer>
-        Copyright &copy; | Aplikasi Manajemen Surat | <?php echo date("d-m-Y h:i:s");?>
-    </footer>
-</body>
+</div>
+<!-- Akhir Header -->
 
-</html>
+@endsection
