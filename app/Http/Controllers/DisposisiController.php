@@ -8,6 +8,9 @@ use App\Models\disposisi;
 use App\Models\SuratMasuk;
 use App\Models\JenisJabatan;
 use App\Models\JenisSurat;
+use App\Models\User;
+use App\Models\File;
+use Illuminate\Support\Facades\Storage;
 use PDF;
 
 
@@ -58,10 +61,22 @@ class DisposisiController extends Controller
         return redirect('/view-sm');
     }
 
-    public function detailDp()
+    public function arsipDp($id)
     {
-        $data = JenisSurat::all();
-        $pdf = PDF::loadview('view-jenis', compact('data'));
-        return $pdf->stream();
+        SuratMasuk::where('id', $id)->update([
+            'done' => 1,
+        ]);
+        return redirect('/view-sm');
+    }
+
+    public function downloadDisp($id)
+    {
+        $hasilSm = SuratMasuk::where('id', $id)->first();
+        $hasilDp = disposisi::where('sm_id', $id)->get();
+        $namaD = User::where('jenisJabatan_id', 2)->first();
+        return view('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
+        // $pdf = PDF::loadview('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
+        // return $pdf->stream();
+        // return $pdf->stream();
     }
 }

@@ -12,7 +12,7 @@ class SuratMasuk extends Model
     public $timestamps = false;
     protected $table = "surat_masuk";
     protected $primaryKey = "id";
-    protected $fillable = ["noSmasuk","tglMasuk","pengirim","file","filename","jenisSurat_id"];
+    protected $fillable = ["noSmasuk","tglMasuk","pengirim","file","filename","jenisSurat_id","done","ringkasan"];
     //protected $fillable = ["noSmasuk","pengirim","file","jenisSurat_id"];
 
     public function jenisSurat(){

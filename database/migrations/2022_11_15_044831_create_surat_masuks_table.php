@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('pengirim');
             $table->text('filename')->nullable();
             $table->text('file')->nullable();
+            $table->string('ringkasan')->nullable();
+            $table->boolean('done')->nullable();
             $table->unsignedBigInteger('jenisSurat_id');
             $table->foreign('jenisSurat_id')->references('id')->on('jenis_surat');
         });

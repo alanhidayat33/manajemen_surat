@@ -42,7 +42,7 @@ Route::group(['middleware' => ['auth', 'user-access:Admin,Direktur,Wadir,Ktu,Kau
     //view Surat Masuk
     Route::get('/view-jenis', [App\Http\Controllers\JenisSuratController::class, 'viewJenis']);
 
-    Route::get('/print-jenis',[JenisSuratController::class, 'printJenis']);
+    Route::get('/download-lembar/{id}',[App\Http\Controllers\DisposisiController::class, 'downloadDisp']);
 });
 
 //akses level admin only
@@ -80,6 +80,9 @@ Route::group(['middleware' => ['auth', 'user-access:Kaur,Admin']], function ()
     Route::get('/input-disposisi/{id}',[DisposisiController::class, 'inputDp']);
     Route::post('/save-disposisi',[DisposisiController::class, 'saveDp']);
     Route::get('/detail-disposisi',[DisposisiController::class, 'detailDp']);
+
+    //arsip lembaran
+    Route::get('/arsip-disposisi/{id}',[DisposisiController::class, 'arsipDp']);
 });
 
 //akses Kepala Tata Usaha

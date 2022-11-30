@@ -11,7 +11,7 @@
                 <div class="page-header d-flex justify-content-between px-4">
                     <h3 class="page-title fw-bold ">Disposisi</h3>
                     @if (auth()->user()->type == 'Kaur' || auth()->user()->type == 'Admin')
-                    <a type="button" href="#"
+                    <a type="button" href="/arsip-disposisi/{{$smasuk->id}}"
                                     onclick="return confirm('Apakah Anda Yakin Ingin Mengarsipkan ?')"
                                     class="btn btn-sm btn-success" data-toggle="tooltip" data-placement="top"
                                     title="Arsipkan">

@@ -19,7 +19,6 @@ return new class extends Migration
             $table->foreign('tujuan')->references('id')->on('jenis_jabatan');
             $table->string('catatan');
             $table->string('sifat');
-            $table->boolean('done');
             $table->string('tanggapan')->nullable();
             $table->string('sebar')->nullable();
             $table->boolean('read');

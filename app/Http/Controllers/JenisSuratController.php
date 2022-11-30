@@ -80,9 +80,4 @@ class JenisSuratController extends Controller
             return redirect('/view-jenis')->with('toast_error', 'Data tidak bisa di hapus!');
         }
     }
-
-    public function printJenis()
-    {
-        return view('disposisi.lembar-disposisi');
-    }
 }

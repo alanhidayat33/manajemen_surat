@@ -43,7 +43,7 @@ class SuratMasukController extends Controller
             }
             else{
                 $disp = $result[0]->id;
-                $SM = disposisi::where('sm_id', $disp)->where('tujuan', Auth::user()->jenisJabatan_id )->get();
+                $SM = disposisi::where('tujuan', Auth::user()->jenisJabatan_id )->get();
                 return view("surat-m.view-sm", compact('result','SM'));   
             }
         }

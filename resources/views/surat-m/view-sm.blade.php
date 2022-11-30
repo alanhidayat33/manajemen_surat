@@ -33,6 +33,9 @@
                         </tr>
                     </thead>
                     <tbody class="overflow-scroll">
+                            @php
+                                $i = 0;
+                            @endphp
                             @foreach ($result as $x)
                                     <tr>
                                         <td>{{ $loop->iteration  }}</td>
@@ -53,7 +56,7 @@
                                             @endempty
                                         </td>
                                         <td>
-                                             @if($SM[0]->read == 1)
+                                            @if($SM[$i]->read == 1)
                                                 <span class="btn btn-sm btn-success"><i class="bi bi-file-earmark-excel-fill"></i>
                                                     Sudah ditanggapi </span>
                                             @else
@@ -68,6 +71,9 @@
                                             </a>
                                         </td>
                                     </tr>
+                                    @php
+                                        $i++;
+                                    @endphp
                             @endforeach
                     </tbody>
                 @else
@@ -103,10 +109,17 @@
                                             @endempty
                                         </td>
                                         <td>
-                                            <a type="button" href="{{ $x->file }}" class="btn btn-sm btn-danger"
+                                            @if($x->done == 1)
+                                            <a type="button" href="/download-lembar/{{$x->id}}" class="btn btn-sm btn-success"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                Download
+                                            @else
+                                            <a type="button" href="#" disabled class="btn btn-sm btn-danger"
                                                 data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="bi bi-file-earmark-arrow-down-fill"></i>
                                                 Belum Rilis
+                                            @endif
                                             </a>
                                         </td>
                                         <td>
