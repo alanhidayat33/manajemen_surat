@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="page-header d-flex justify-content-between px-4">
                     <h3 class="page-title fw-bold ">Surat Keluar</h3>
-                    @if (auth()->user()->type == 'Admin')
+                    @if (auth()->user()->type == 'Ktu')
                     <a href="input-sk" type="button" class="btn btn-primary">
                         <i class="bi bi-envelope-plus"></i> Tambah Surat</a>
                     @endif
@@ -23,10 +23,11 @@
                             <th>No</th>
                             <th> Nomor Surat </th>
                             <th> Tanggal Surat </th>
-                            <th> Tujuan </th>
-                            <th> Jenis Surat</th>
+                            <th> Asal </th>
+                            <th> Tujuan</th>
+                            <th> Perihal </th>
                             <th> File </th>
-                            <th> Action</th>
+                            <th> Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="overflow-scroll">
@@ -35,7 +36,8 @@
                             <td>{{ $loop->iteration  }}</td>
                             <td>{{ $x->noSkeluar }}</td>
                             <td>{{ $x->tglKeluar }}</td>
-                            <td>{{ $x->tujuan }}</td>
+                            <td>{{ $x->asal }}</td>
+                            <td>{{ $x->tujuan}}</td>
                             <td>{{ $x->jenisSurat['keterangan'] }}</td>
                             <td>
                                 @empty($x->file)
@@ -51,7 +53,7 @@
                             </td>
                             <td>
 
-                                @if (auth()->user()->type == 'Admin')
+                                @if (auth()->user()->type == 'Ktu')
                                 <a type="button" href="/edit-sk/{{ $x->id }}" class="btn btn-sm btn-primary"
                                     data-toggle="tooltip" data-placement="top" title="Edit">
                                     <i class="bi bi-pencil-fill"></i>

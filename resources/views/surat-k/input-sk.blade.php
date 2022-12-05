@@ -21,6 +21,20 @@
                     @enderror
                 </div>
                 <div class="col-md-4">
+                    <label for="inputZip" class="form-label">Asal Surat</label>
+                    <input type="text" name="asal" class="form-control" value="{{ old('asal') }}">
+                    @error('noSkeluar')
+                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
+                    @enderror
+                </div>
+                <div class="col-md-4">
+                    <label for="exampleInputEmail1" class="form-label">Tujuan</label>
+                    <input type="text" name="tujuan" class="form-control" value="{{ old('tujuan') }}">
+                    @error('tujuan')
+                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
+                    @enderror
+                </div>
+                <div class="col-md-4">
                     <label for="inputState" class="form-label">Jenis Surat</label>
                     <select class="form-select" id="inputState" name="jenisSurat_id" value="{{ old('jenisSurat_id') }}">
                         @foreach ($data as $x)
@@ -39,13 +53,7 @@
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
-                <div class="my-3">
-                    <label for="exampleInputEmail1" class="form-label">Tujuan</label>
-                    <input type="text" name="tujuan" class="form-control" value="{{ old('tujuan') }}">
-                    @error('tujuan')
-                    <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
-                    @enderror
-                </div>
+                
                 <div class="mb-3">
                     <label for="tanggal">Upload File</label>
                     <!-- <input type="file" name="file" value="{{ old('file') }}"> -->

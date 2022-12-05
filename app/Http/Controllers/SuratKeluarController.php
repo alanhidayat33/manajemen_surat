@@ -6,7 +6,11 @@ use App\Models\JenisSurat;
 use Illuminate\Http\Request;
 use App\Models\SuratKeluar;
 use App\Models\SuratMasuk;
+use App\Models\JenisJabatan;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+Use DB;
 
 class SuratKeluarController extends Controller
 {
@@ -18,6 +22,11 @@ class SuratKeluarController extends Controller
     public function viewSk()
     {
         $dataSk = SuratKeluar::all();
+        if(Auth::user()->type == 'Maha' || Auth::user()->type == 'Dosen')
+        {
+            $dataSk = SuratKeluar::where('tujuan', Auth::user()->name)->get();
+            return view("surat-k.view-sk", ['data' => $dataSk]);
+        }
         return view("surat-k.view-sk", ['data' => $dataSk]);
     }
 
@@ -33,6 +42,7 @@ class SuratKeluarController extends Controller
         $messages = [
             'noSkeluar.required' => 'Nomor surat tidak boleh kosong!',
             'tglKeluar.required' => 'Tanggal surat tidak boleh kosong!',
+            'asal.required' => 'Asal tidak boleh kosong!',
             'tujuan.required' => 'Tujuan tidak boleh kosong!',
             'jenisSurat_id.required' => 'Perihal tidak boleh kosong!',
             // 'file.required' => 'File surat tidak boleh kosong!',
@@ -41,6 +51,7 @@ class SuratKeluarController extends Controller
         $cekValidasi = $x->validate([
             'noSkeluar' => 'required',
             'tglKeluar' => 'required',
+            'asal' => 'required',
             'tujuan' => 'required',
             'jenisSurat_id' => 'required',
             'file' => 'mimes:pdf|max:2048'
@@ -51,11 +62,13 @@ class SuratKeluarController extends Controller
             SuratKeluar::create([
                 'noSkeluar' => $x->noSkeluar,
                 'tglKeluar' => $x->tglKeluar,
+                'asal' => $x->asal,
                 'tujuan' => $x->tujuan,
                 'jenisSurat_id' => $x->jenisSurat_id,
             ], $cekValidasi);
         } else {
             $nama_file = time() . "-" . $file->getClientOriginalName();
+            $fileN = $file->getClientOriginalName();
             $ekstensi = $file->getClientOriginalExtension();
             $ukuran = $file->getSize();
             $patAsli = $file->getRealPath();
@@ -66,8 +79,10 @@ class SuratKeluarController extends Controller
             SuratKeluar::create([
                 'noSkeluar' => $x->noSkeluar,
                 'tglKeluar' => $x->tglKeluar,
+                'asal' => $x->asal,
                 'tujuan' => $x->tujuan,
                 'jenisSurat_id' => $x->jenisSurat_id,
+                'filename' => $fileN,
                 'file' => $pathPublic,
             ], $cekValidasi);
         }
@@ -102,18 +117,23 @@ class SuratKeluarController extends Controller
         $file = $x->file('file');
         if (file_exists($file)) {
             $nama_file = time() . "-" . $file->getClientOriginalName();
+            $fileN = $file->getClientOriginalName();
             $folder = 'file';
             $file->move($folder, $nama_file);
             $path = $folder . "/" . $nama_file;
             //delete
             $data = SuratKeluar::where('id', $idSkeluar)->first();
             File::delete($data->file);
+            SuratKeluar::where("id", "$idSmasuk")->update([
+                'filename' => $fileN,
+            ], $cekValidasi);
         } else {
             $path = $x->pathFile;
         }
         SuratKeluar::where("id", "$idSkeluar")->update([
             'noSkeluar' => $x->noSkeluar,
             'tglKeluar' => $x->tglKeluar,
+            'asal' => $x->asal,
             'tujuan' => $x->tujuan,
             'jenisSurat_id' => $x->jenisSurat_id,
             'file' => $path,
@@ -134,6 +154,17 @@ class SuratKeluarController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             return redirect('/view-sk')->with('toast_error', 'Data tidak bisa di hapus!');
         }
+    }
+
+    public function hapusFm($idSkeluar)
+    {
+        $data = SuratKeluar::where('id', $idSkeluar)->first();
+        File::delete($data->file);
+        SuratKeluar::where("id", "$idSkeluar")->update([
+            'filename' => null,
+            'file' => null,
+        ]);
+        return redirect()->back()->with('toast_success', 'File berhasil di hapus!');
     }
 
 }

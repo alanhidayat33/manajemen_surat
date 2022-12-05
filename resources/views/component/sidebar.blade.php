@@ -28,7 +28,7 @@
                 </svg> <span class="ms-3">Home</span>
             </a>
         </div>
-        @if(auth()->user()->type != 'Maha')
+        @if(auth()->user()->type != 'Maha' && auth()->user()->type != 'Dosen')
         <div class="my-3">
             <a href="/view-sm" class="nav-link text-decoration-none text-white fs-6">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" fill="currentColor"

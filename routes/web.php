@@ -27,7 +27,7 @@ Route::get('/', function () {
 Auth::routes();
        
 //akses semua
-Route::group(['middleware' => ['auth', 'user-access:Admin,Direktur,Wadir,Ktu,Kaur']], function () {
+Route::group(['middleware' => ['auth', 'user-access:Admin,Direktur,Wadir,Ktu,Kaur,Maha,Dosen']], function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
     //view Surat Masuk
@@ -102,4 +102,5 @@ Route::group(['middleware' => ['auth', 'user-access:Ktu,Admin']], function ()
     Route::get('/edit-sk/{id}', [SuratKeluarController::class, 'editSk']);
     Route::post('/update-sk/{id}', [SuratKeluarController::class, 'updateSk']);
     Route::get('/hapus-sk/{id}', [SuratKeluarController::class, 'hapusSk']);
+    Route::get('/hapus-fm/{id}', [SuratKeluarController::class, 'hapusFm']);
 });

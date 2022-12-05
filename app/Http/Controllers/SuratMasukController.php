@@ -117,7 +117,6 @@ class SuratMasukController extends Controller
  
     public function updateSm($idSmasuk, Request $x)
     {
-        dd($idSmasuk);
         //Validasi
         $messages = [
             'noSmasuk.required' => 'Nomor surat tidak boleh kosong!',

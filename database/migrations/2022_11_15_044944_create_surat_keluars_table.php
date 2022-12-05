@@ -17,7 +17,9 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('noSkeluar');
             $table->date('tglKeluar');
+            $table->string('asal');
             $table->string('tujuan');
+            $table->text('filename')->nullable();
             $table->text('file')->nullable();
             $table->unsignedBigInteger('jenisSurat_id');
             $table->foreign('jenisSurat_id')->references('id')->on('jenis_surat');

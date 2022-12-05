@@ -49,10 +49,27 @@
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror
                 </div>
-                <div class="mb-3">
-                    <label for="tanggal">Upload File</label>
-                    <!-- <input type="file" name="file" value="{{ old('file') }}"> -->
-                    <input class="form-control" type="file" name="file" value="{{ old('file') }}">
+                <div class="mb-3 row">
+                    <label for="upload">Upload File</label>
+                    @empty($data->file)
+                        <div class="col-12">
+                            <input class="form-control" type="file" name="file" placeholder="{{ $data->file }}"
+                                value="{{ $data->file }}">
+                        </div>
+                    @else
+                        <div class="col-md-10">
+                            <input class="form-control col-8" type="text" name="file" placeholder="{{ $data->filename }}"
+                                value="{{ $data->filename }}">
+                        </div>
+                        <div class="col-md-2">
+                            <a type="button" href="/hapus-fm/{{ $data->id }}"
+                            onclick="return confirm('Apakah anda yakin menghapus data?')"
+                            class="btn btn-sm btn-danger col-4" data-toggle="tooltip" data-placement="top"
+                                title="Delete">
+                                <i class="bi bi-trash-fill"></i>
+                            </a>
+                        </div>
+                    @endempty
                     @error('file')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>
                     @enderror

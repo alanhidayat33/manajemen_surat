@@ -12,7 +12,7 @@ class SuratKeluar extends Model
     public $timestamps = false;
     protected $table ="surat_keluar";
     protected $primaryKey = "id";
-    protected $fillable = ["noSkeluar","tglKeluar","tujuan","file","jenisSurat_id"];
+    protected $fillable = ["noSkeluar","tglKeluar","tujuan","file","jenisSurat_id","asal","filename"];
 
     public function jenisSurat(){
         return $this->belongsTo(jenisSurat::class, 'jenisSurat_id');

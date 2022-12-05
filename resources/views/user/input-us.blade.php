@@ -8,7 +8,7 @@
         </div>
         <div class="col-lg-9 bg-white pt-4 shadow-sm" style="border-radius:15px">
             <div class="page-header mb-4">
-                <h3 class="page-title">Edit User</h3>
+                <h3 class="page-title">Tambah User</h3>
             </div>
             <form action="/save-user" method="POST" class="forms-sample row"
                 enctype="multipart/form-data">
@@ -56,6 +56,7 @@
                         <option value="3">Ktu</option>
                         <option value="4">Kaur</option>
                         <option value="5">Maha</option>
+                        <option value="6">Dosen</option>
                     </select>
                     @error('jenisSurat_id')
                     <div id="emailHelp" class="form-text text-danger">{{ $message}}</div>

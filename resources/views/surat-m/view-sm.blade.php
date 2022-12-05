@@ -114,6 +114,12 @@
                                                 data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="bi bi-check-circle-fill"></i>
                                                 Download
+                                            </a>
+                                            <a type="button" href="/preview-lembar/{{$x->id}}" class="btn btn-sm btn-success"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-check-circle-fill"></i>
+                                                Preview
+                                            </a>
                                             @else
                                             <a type="button" href="#" disabled class="btn btn-sm btn-danger"
                                                 data-toggle="tooltip" data-placement="top" title="Edit">

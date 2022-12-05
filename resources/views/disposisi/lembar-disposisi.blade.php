@@ -27,7 +27,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td rowspan="1">
                 <p class="lh-0 pb-0 mb-0">Surat Dari : {{$hasilSm->pengirim}}</p>
                 <p class="lh-0 pb-0 mb-0">Nomor Surat : {{$hasilSm->noSmasuk}}</p>
                 <br>
