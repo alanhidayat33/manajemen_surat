@@ -69,6 +69,17 @@ class DisposisiController extends Controller
         return redirect('/view-sm');
     }
 
+    public function previewDisp($id)
+    {
+        $hasilSm = SuratMasuk::where('id', $id)->first();
+        $hasilDp = disposisi::where('sm_id', $id)->get();
+        $namaD = User::where('jenisJabatan_id', 2)->first();
+        return view('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
+        // $pdf = PDF::loadview('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
+        // return $pdf->stream($hasilSm->noSmasuk);
+        // return $pdf->stream();
+    }
+
     public function downloadDisp($id)
     {
         $hasilSm = SuratMasuk::where('id', $id)->first();
@@ -77,17 +88,6 @@ class DisposisiController extends Controller
         // return view('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
         $pdf = PDF::loadview('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
         return $pdf->stream($hasilSm->noSmasuk);
-        // return $pdf->stream();
-    }
-
-    public function previewDisp($id)
-    {
-        $hasilSm = SuratMasuk::where('id', $id)->first();
-        $hasilDp = disposisi::where('sm_id', $id)->get();
-        $namaD = User::where('jenisJabatan_id', 2)->first();
-        // return view('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
-        // $pdf = PDF::loadview('disposisi.lembar-disposisi', compact('hasilSm','hasilDp','namaD'));
-        // return $pdf->stream($hasilSm->noSmasuk);
         // return $pdf->stream();
     }
 }

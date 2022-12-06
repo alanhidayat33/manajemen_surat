@@ -43,6 +43,7 @@ Route::group(['middleware' => ['auth', 'user-access:Admin,Direktur,Wadir,Ktu,Kau
     Route::get('/view-jenis', [App\Http\Controllers\JenisSuratController::class, 'viewJenis']);
 
     Route::get('/download-lembar/{id}',[App\Http\Controllers\DisposisiController::class, 'downloadDisp']);
+    Route::get('/preview-lembar/{id}',[App\Http\Controllers\DisposisiController::class, 'previewDisp']);
 });
 
 //akses level admin only

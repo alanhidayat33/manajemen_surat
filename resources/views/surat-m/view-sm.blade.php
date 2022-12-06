@@ -110,15 +110,15 @@
                                         </td>
                                         <td>
                                             @if($x->done == 1)
-                                            <a type="button" href="/download-lembar/{{$x->id}}" class="btn btn-sm btn-success"
-                                                data-toggle="tooltip" data-placement="top" title="Edit">
-                                                <i class="bi bi-check-circle-fill"></i>
-                                                Download
-                                            </a>
                                             <a type="button" href="/preview-lembar/{{$x->id}}" class="btn btn-sm btn-success"
                                                 data-toggle="tooltip" data-placement="top" title="Edit">
                                                 <i class="bi bi-check-circle-fill"></i>
                                                 Preview
+                                            </a>
+                                            <a type="button" href="/download-lembar/{{$x->id}}" class="btn btn-sm btn-success"
+                                                data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <i class="bi bi-file-earmark-arrow-down"></i>
+                                                Download
                                             </a>
                                             @else
                                             <a type="button" href="#" disabled class="btn btn-sm btn-danger"
